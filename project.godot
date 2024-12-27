@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="NeuroBulletHell"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/levels/tutorial.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Main="*res://main.gd"
+Globals="*res://scripts/globals.gd"
+Main="res://main.gd"
 Spawning="*res://addons/BulletUpHell/Spawning.tscn"
 
 [display]
