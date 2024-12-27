@@ -135,33 +135,19 @@ func reset(minimal:bool=false):
 				if elem[0] == "@": continue
 				array.erase(elem)
 
-
-func _exit_tree():
-	#spawn_thread.wait_to_finish()
-	#draw_thread.wait_to_finish()
-	#move_thread.wait_to_finish()
-	pass
-
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint(): return
 
-	_delta = delta
-	#if not cull_fixed_screen:
-		#viewrect = Rect2(-get_canvas_transform().get_origin()/get_canvas_transform().get_scale(), \
-						#get_viewport_rect().size/get_canvas_transform().get_scale())
 
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint(): return
 
+	_delta = delta
 	if not poolBullets.is_empty():
-#		if move_thread.is_started():
-#			move_thread.wait_to_finish()
-#		move_thread.start(bullet_movement.bind(delta))
-#		#draw_thread.start(queue_redraw)
-		bullet_movement(delta)
+		bullet_movement()
 		queue_redraw()
 
-	time += delta
+	time += _delta
 	if time == loop_length: time = 0
 	while not poolQueue.is_empty() and poolTimes[0] < time:
 		next_in_queue = poolQueue[0]
@@ -267,7 +253,6 @@ func create_pool(bullet:String, shared_area:String, amount:int, object:bool=fals
 		$SharedAreas.get_node(shared_area).set_meta("ShapeCount", $SharedAreas.get_node(shared_area).get_meta("ShapeCount",0)+amount) # Warning, bad sync possible ?
 		for i in amount:
 			new_rid = create_shape(shared_rid, arrayAnim[props["anim_spawn"]][ANIM.COLLISION], true, count+i)
-#			shape_indexes[new_rid] = count+i
 			_update_shape_indexes(new_rid, count+i, shared_area)
 			inactive_pool[bullet].append([new_rid, shared_area])
 	inactive_pool["__SIZE__"+bullet] += amount
@@ -280,7 +265,7 @@ func wake_from_pool(bullet:String, queued_instance:Dictionary, shared_area:Strin
 	elif inactive_pool[bullet].is_empty():
 		push_warning("WARNING : bullet pool for bullet of ID "+bullet+" is empty. Create bigger one next time to avoid lag.")
 		create_pool(bullet, queued_instance["shared_area"].name, max(inactive_pool["__SIZE__"+bullet]/10, 50), object)
-
+	
 	if inactive_pool[bullet][0] is Array:
 		var i:int = 0
 		while inactive_pool[bullet][i][1] != shared_area: i += 1
@@ -350,7 +335,6 @@ func set_angle(pattern:Pattern, pos:Vector2, queued_instance:Dictionary):
 
 func create_bullet_instance_dict(queued_instance:Dictionary, bullet_props:Dictionary, pattern:Pattern):
 	queued_instance["shape_disabled"] = true
-	#if pattern.bullet in no_culling_for: queued_instance["no_culling"] = true
 	queued_instance["speed"] = bullet_props.speed
 	queued_instance["vel"] = Vector2()
 	if bullet_props.has("groups"): queued_instance["groups"] = bullet_props.get("groups")
@@ -379,10 +363,6 @@ func set_spawn_data(queued_instance:Dictionary, bullet_props:Dictionary, pattern
 ### TRIGGER SPAWN ###
 
 func spawn(spawner, id:String, shared_area:String="0"):
-	#spawn_thread.start(_thread_spawn.bind(spawner, id, shared_area))
-	#_thread_spawn(spawner, id, shared_area)
-
-#func _thread_spawn(spawner, id:String, shared_area:String="0"):
 	assert(arrayPatterns.has(id))
 	var local_reset_counter:int = global_reset_counter
 	var bullets:Array
@@ -647,13 +627,8 @@ func init_special_variables(b:Dictionary, rid):
 		b['trig_types'] = trig_types
 		b['trig_iter'] = {}
 		if trig_types.has("TrigCol"): b["trig_collider"] = null
-#		if trig_types.has("TrigPos"): b["trig_collider"] = null
 		if trig_types.has("TrigSig"): b["trig_signal"] = null
 		if trig_types.has("TrigTime"): b["trig_timeout"] = false
-
-#	if bp.has("spec_rotating_speed"): b['bounces'] = bp["spec_rotating_speed"]
-#	if bp.has("homing_target") or bp.has("homing_position"):
-#		b['homing_target'] = bp["homing_target"]
 
 
 
@@ -664,10 +639,10 @@ func init_special_variables(b:Dictionary, rid):
 #§§§§§§§§§§§§§ MOVEMENT §§§§§§§§§§§§§
 
 
-func move_scale(B:Dictionary, props, delta:float):
+func move_scale(B:Dictionary, props):
 	if B.get("scale_multi_iter",0) == 0: return
 
-	B["scale_interpolate"] += delta
+	B["scale_interpolate"] += _delta
 	var _scale = props["scale"] * props["scale_multiplier"].sample(B["scale_interpolate"]/props["scale_multi_scale"])
 	B["scale"] = Vector2(_scale,_scale)
 	if B["scale_interpolate"]/props["scale_multi_scale"] >= 1 and props["scale_multi_iterations"] != -1:
@@ -682,10 +657,10 @@ func move_trail(B:Dictionary, props):
 		B["trail"].remove_at(3)
 		B["trail"].insert(0, B["position"])
 
-func move_speed(B:Dictionary, props, delta:float):
+func move_speed(B:Dictionary, props):
 	if B.get("speed_multi_iter",0) == 0: return
 
-	B["speed_interpolate"] += delta
+	B["speed_interpolate"] += _delta
 	B["speed"] = props["a_speed_multiplier"].sample(B["speed_interpolate"]/props["a_speed_multi_scale"])
 	if B["speed_interpolate"]/props["a_speed_multi_scale"] >= 1 and props["a_speed_multi_iterations"] != -1:
 		B["speed_multi_iter"] -= 1
@@ -700,7 +675,7 @@ func move_equation(B:Dictionary, props):
 	B["curveDir_index"] += 0.05 #TODO add speed
 	B["curve"] = expression.execute([B["curveDir_index"]])*100
 
-func move_homing(B:Dictionary, props, delta:float):
+func move_homing(B:Dictionary, props):
 	if not B.get("homing_target", null): return
 
 	var target_pos:Vector2
@@ -724,12 +699,12 @@ func move_homing(B:Dictionary, props, delta:float):
 						B["homing_target"] = null
 		else: B["homing_target"] = null
 
-	B["vel"] += ((target_pos-B["position"]).normalized()*B["speed"] - B["vel"]).normalized() * props["homing_steer"] * delta
+	B["vel"] += ((target_pos-B["position"]).normalized()*B["speed"] - B["vel"]).normalized() * props["homing_steer"] * _delta
 	B["rotation"] = B["vel"].angle()
 
-func move_curve(B:Dictionary, props, delta:float, b):
+func move_curve(B:Dictionary, props, b):
 	B["position"] = B["spawn_pos"]+(props["curve"].sample_baked(B["curve_counter"]*B["speed"])-B["curve_start"]).rotated(B["rotation"])
-	B["curve_counter"] += delta
+	B["curve_counter"] += _delta
 
 	if B["curve_counter"] * B["speed"] < props["curve"].get_baked_length(): return
 	match props["a_curve_movement"]:
@@ -741,7 +716,7 @@ func move_curve(B:Dictionary, props, delta:float, b):
 		CURVE_TYPE.OnceThenStay: B["speed"] = 0
 
 
-func bullet_movement(delta:float):
+func bullet_movement():
 	var B:Dictionary; var props:Dictionary;
 	for b in poolBullets.keys():
 		B = poolBullets[b]
@@ -753,7 +728,7 @@ func bullet_movement(delta:float):
 			continue
 
 		if B.has("death_counter"):
-			B["death_counter"] += delta
+			B["death_counter"] += _delta
 			if B["death_counter"] >= props["death_after_time"]:
 				delete_bullet(b)
 				_apply_movement(B, b, props)
@@ -761,7 +736,7 @@ func bullet_movement(delta:float):
 		if B.has("rot_index"): B["rot_index"] += props["spec_rotating_speed"]
 
 		#scale curve
-		move_scale(B, props, delta)
+		move_scale(B, props)
 
 		if B["state"] == BState.Spawned:
 			if B["source_node"] is Dictionary: B["position"] = B["spawn_pos"] + B["source_node"]["position"]
@@ -772,19 +747,19 @@ func bullet_movement(delta:float):
 			move_trail(B, props)
 
 			# speed curve
-			move_speed(B, props, delta)
+			move_speed(B, props)
 
 			# direction from math equation
 			move_equation(B, props)
 
 			# homing
-			move_homing(B, props, delta)
+			move_homing(B, props)
 
 			# follow path2D
-			if props.get("curve"): move_curve(B, props, delta, b)
+			if props.get("curve"): move_curve(B, props, b)
 			else:
 				B["vel"] = Vector2(B["speed"],B.get("curve",0)).rotated(B["rotation"])
-				B["position"] += B["vel"]*delta
+				B["position"] += B["vel"]*_delta
 
 			if B.has("spawn_pos") and not props.has("curve"): B["position"] += B["spawn_pos"]
 
@@ -886,7 +861,6 @@ func modulate_bullet(b:Dictionary, texture:Texture):
 
 func _draw():
 	if Engine.is_editor_hint(): return
-	viewrect = get_viewport().get_visible_rect()
 
 	var texture:Texture; var b
 	for B in poolBullets.keys():
@@ -903,8 +877,7 @@ func _draw():
 			for l in 3:
 				draw_line(b["trail"][l],b["trail"][l+1],b["props"]["spec_trail_modulate"],b["props"]["spec_trail_width"])
 
-		if (not (b["state"] >= BState.Spawning and viewrect.has_point(b["position"]))) or \
-			(b["props"].has("spec_modulate") and b["props"].has("spec_modulate_loop") and \
+		if (not (b["state"] >= BState.Spawning)) or (b["props"].has("spec_modulate") and b["props"].has("spec_modulate_loop") and \
 			b["props"]["spec_modulate"].get_color(0).a == 0):
 				continue
 
@@ -973,9 +946,6 @@ func clear_bullets_within_dist(target_pos, radius:float=STANDARD_BULLET_RADIUS):
 	for b in poolBullets.keys():
 		if poolBullets[b]["position"].distance_to(target_pos) < radius:
 			delete_bullet(b)
-
-#func clear_all_offscreen_bullets():
-	#for b in poolBullets.keys(): check_bullet_culling(poolBullets[b],b)
 
 func delete_bullet(b):
 	if not poolBullets.has(b): return
@@ -1075,7 +1045,6 @@ func get_variation(mean:float, variance:float, limit_down=0, limit_up=0):
 	elif limit_down != 0: return max(RAND.randfn(mean,variance),limit_down)
 	elif limit_up != 0: return min(RAND.randfn(mean,variance),limit_up)
 	else:
-		print(mean,variance," ",RAND.randfn(mean,variance))
 		return RAND.randfn(mean,variance)
 
 func get_choice_string(list:String):
@@ -1149,6 +1118,7 @@ func target_from_list(B:Dictionary, do:bool=true):
 	B["homing_target"] = B["props"]["homing_list"][B["homing_counter"]]
 
 func trig_timeout(b, rid):
+	if b == null: return
 	if b is Node: b.trigger_timeout = true
 	else: b["trig_timeout"] = true
 	b.get("trig_container").checkTriggers(b,rid)
@@ -1247,12 +1217,8 @@ func match_rand_prop(original:String) -> String:
 		"a_speed_multiplier": return "r_speed_multi_curve"
 		"a_speed_multi_iterations": return "r_speed_multi_iter"
 		"spec_bounces": return "r_bounce"
-#		"spec_no_collision": return "r_"
 		"spec_modulate": return "r_modulate"
 		"spec_rotating_speed": return "r_rotating"
-#		"spec_trail_length": return "r_"
-#		"spec_trail_width": return "r_"
-#		"spec_trail_modulate": return "r_"
 		"trigger_container": return "r_trigger"
 		"homing_target": return "r_homing_target"
 		"homing_special_target": return "r_special_target"
