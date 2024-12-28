@@ -3,7 +3,8 @@ extends Node2D
 @export var cameraSpeed: float = 100
 
 func _ready() -> void:
-	Spawning.spawn($SpawnPoint, "Intro1")
+	pass
 
 func _process(delta: float) -> void:
-	pass
+	$WorldCamera.position.y -= cameraSpeed * delta
+	$Player.position.y -= cameraSpeed * delta
