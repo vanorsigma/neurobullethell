@@ -1,48 +1,71 @@
-[gd_scene load_steps=32 format=3 uid="uid://c2hg81bw5ptq"]
+[gd_scene load_steps=21 format=3 uid="uid://djo3ijb7gjubd"]
 
-[ext_resource type="Script" path="res://addons/BulletUpHell/ExampleScenes/ExampleScene.gd" id="1_y1qmf"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHPattern.gd" id="2_8fi2v"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHTriggerContainer.gd" id="2_fwqwm"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="3_3syup"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/Triggers/TriggerTime.gd" id="3_gs7vq"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="4_801jc"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHBulletProperties.gd" id="4_wpn57"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/Bullet/BulletProps.gd" id="5_i6mox"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/Triggers/TriggerCollision.gd" id="5_y0hpv"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHSpawnPoint.gd" id="6_4dtj3"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/Triggers/TriggerPos.gd" id="6_qjh5j"]
-[ext_resource type="Texture2D" uid="uid://cci0qi8oibvs1" path="res://addons/BulletUpHell/Sprites/NodeIcons5.png" id="12_n1q54"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/ExampleScenes/ExampleScene.gd" id="1_tunqa"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHPattern.gd" id="2_rnco7"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="3_38vvj"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="4_aw2fd"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternLine.gd" id="5_aoj3g"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHBulletProperties.gd" id="6_3yoqa"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Bullet/animStates.gd" id="7_en8qh"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Bullet/BulletProps.gd" id="8_i2ptx"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHSpawnPoint.gd" id="9_svjcx"]
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_4ye41"]
-script = ExtResource("3_gs7vq")
-time = 3.0
+[sub_resource type="Curve2D" id="Curve2D_u3j77"]
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_oap44"]
-script = ExtResource("3_gs7vq")
-time = 3.0
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_kt31x"]
+resource_name = "PatternOne"
+source_geometry_group_name = &"navigation_polygon_source_group"
+script = ExtResource("3_38vvj")
+bullet = "1"
+nbr = 1
+iterations = -1
+cooldown_spawn = 2.0
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+cooldown_layers = PackedVector2Array()
+cooldown_stasis = false
+on_interruption = 0
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+wait_behavior = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+forced_angle = 4.71239
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+impulse = 300
+bullet_list = Array[String]([])
+skip_step = 0
+skip_list = Array[PackedInt32Array]([])
+skip_in_list = true
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_vnfc6"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_iro43"]
 resource_name = "PatternCircle"
 source_geometry_group_name = &"navigation_polygon_source_group"
-script = ExtResource("4_801jc")
-radius = 0.0
-angle_total = 6.283
-angle_decal = 0.4304
+script = ExtResource("4_aw2fd")
+radius = 150.0
+angle_total = 6.28319
+angle_decal = 0.0
 center = 0
 symmetric = false
-bullet = "00"
-nbr = 3
-iterations = 1
-cooldown_spawn = 0.017
+bullet = "2"
+nbr = 4
+iterations = -1
+cooldown_spawn = 0.1
 cooldown_shoot = 0.0
 cooldown_next_spawn = 0.0
 cooldown_next_shoot = 0.0
 cooldown_layers = PackedVector2Array()
 cooldown_stasis = false
+on_interruption = 0
 pattern_angle = 0.0
 pattern_angle_target = NodePath("")
 pattern_angle_mouse = false
-wait_behavior = 0
+wait_behavior = 1
 wait_tween_momentum = 0
 wait_tween_length = 0.0
 wait_tween_time = 0.0
@@ -50,32 +73,21 @@ forced_angle = 0.0
 forced_target = NodePath("")
 forced_lookat_mouse = false
 forced_pattern_lookat = true
+impulse = 0
 bullet_list = Array[String]([])
 skip_step = 0
 skip_list = Array[PackedInt32Array]([])
 skip_in_list = true
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_lartf"]
-script = ExtResource("5_y0hpv")
-group_to_collide = ""
-target_to_collide = NodePath("")
-on_bounce = false
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_xk7l8"]
-script = ExtResource("6_qjh5j")
-on_axis = 2
-pos = Vector2(344, 448)
-target = NodePath("")
-distance = 30.0
-
-[sub_resource type="Curve2D" id="Curve2D_usp2q"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_iufug"]
-resource_name = "PatternOne"
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_txvqr"]
+resource_name = "PatternLine"
 source_geometry_group_name = &"navigation_polygon_source_group"
-script = ExtResource("3_3syup")
-bullet = "one"
-nbr = 1
+script = ExtResource("5_aoj3g")
+offset = Vector2(0, 15)
+center = 1
+symmetric = true
+bullet = "3"
+nbr = 5
 iterations = -1
 cooldown_spawn = 2.0
 cooldown_shoot = 0.0
@@ -83,6 +95,7 @@ cooldown_next_spawn = 0.0
 cooldown_next_shoot = 0.0
 cooldown_layers = PackedVector2Array()
 cooldown_stasis = false
+on_interruption = 0
 pattern_angle = 0.0
 pattern_angle_target = NodePath("")
 pattern_angle_mouse = false
@@ -94,104 +107,60 @@ forced_angle = 0.0
 forced_target = NodePath("")
 forced_lookat_mouse = false
 forced_pattern_lookat = true
+impulse = 0
 bullet_list = Array[String]([])
 skip_step = 0
 skip_list = Array[PackedInt32Array]([])
 skip_in_list = true
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_hbyap"]
-resource_name = "PatternOne"
-source_geometry_group_name = &"navigation_polygon_source_group"
-script = ExtResource("3_3syup")
-bullet = "two"
-nbr = 1
-iterations = -1
-cooldown_spawn = 2.0
-cooldown_shoot = 0.0
-cooldown_next_spawn = 0.0
-cooldown_next_shoot = 0.0
-cooldown_layers = PackedVector2Array()
-cooldown_stasis = false
-pattern_angle = 0.0
-pattern_angle_target = NodePath("")
-pattern_angle_mouse = false
-wait_behavior = 0
-wait_tween_momentum = 0
-wait_tween_length = 0.0
-wait_tween_time = 0.0
-forced_angle = 0.0
-forced_target = NodePath("")
-forced_lookat_mouse = false
-forced_pattern_lookat = true
-bullet_list = Array[String]([])
-skip_step = 0
-skip_list = Array[PackedInt32Array]([])
-skip_in_list = true
+[sub_resource type="Curve2D" id="Curve2D_kjhx3"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_p6uu0"]
-resource_name = "PatternOne"
-source_geometry_group_name = &"navigation_polygon_source_group"
-script = ExtResource("3_3syup")
-bullet = "three"
-nbr = 1
-iterations = -1
-cooldown_spawn = 2.0
-cooldown_shoot = 0.0
-cooldown_next_spawn = 0.0
-cooldown_next_shoot = 0.0
-cooldown_layers = PackedVector2Array()
-cooldown_stasis = false
-pattern_angle = 0.0
-pattern_angle_target = NodePath("")
-pattern_angle_mouse = false
-wait_behavior = 0
-wait_tween_momentum = 0
-wait_tween_length = 0.0
-wait_tween_time = 0.0
-forced_angle = 0.0
-forced_target = NodePath("")
-forced_lookat_mouse = false
-forced_pattern_lookat = true
-bullet_list = Array[String]([])
-skip_step = 0
-skip_list = Array[PackedInt32Array]([])
-skip_in_list = true
+[sub_resource type="Curve" id="Curve_l5me8"]
 
-[sub_resource type="Curve2D" id="Curve2D_i0ash"]
+[sub_resource type="Curve" id="Curve_2xsyn"]
 
-[sub_resource type="Curve" id="Curve_ogpsu"]
-
-[sub_resource type="Curve" id="Curve_437es"]
-
-[sub_resource type="PackedDataContainer" id="PackedDataContainer_jj7bm"]
-script = ExtResource("5_i6mox")
+[sub_resource type="PackedDataContainer" id="PackedDataContainer_yktta"]
+script = ExtResource("8_i2ptx")
 damage = 1.0
-speed = 100.0
-scale = 0.5
+speed = 200.0
+scale = 1.0
 angle = 0.0
 groups = PackedStringArray()
+custom_data = {
+"test": Vector3(0, 2, 3)
+}
 death_after_time = 30.0
 death_outside_box = Rect2(0, 0, 0, 0)
 death_from_collision = true
 death_speed_under = 0.0
 death_culling_overwrite = 3
 spec_modulate_loop = 0.0
-anim_more = Array[Resource("res://addons/BulletUpHell/Bullet/animStates.gd")]([])
+no_rotation = false
+anim_more = Array[ExtResource("7_en8qh")]([])
 spec_trail_length = 0.0
 spec_trail_width = 0.0
 spec_trail_modulate = Color(1, 1, 1, 1)
+spec_trail_fade_out = false
+spec_trail_thin_out = false
+spec_trail_smooth = 0.03
 a_direction_equation = ""
 a_angular_equation = ""
 a_curve_movement = 0
 a_speed_multi_iterations = 0
 a_speed_multi_scale = 0.0
-a_speed_multiplier = SubResource("Curve_ogpsu")
+a_speed_multiplier = SubResource("Curve_l5me8")
+depth_active = Vector2(0, 0)
+depth_spawn = 0.0
+depth_speed = 100.0
+depth_min_max = Vector2(-300, 100)
+depth_bounce = false
 spec_bounces = 0
-spec_no_collision = true
+spec_no_collision = false
 spec_rotating_speed = 0.0
 spec_only_spin_sprite = true
+spec_weight = 1.0
 scale_multi_iterations = 0
-scale_multiplier = SubResource("Curve_437es")
+scale_multiplier = SubResource("Curve_2xsyn")
 scale_multi_scale = 1.0
 trigger_container = ""
 trigger_wait_for_shot = true
@@ -243,43 +212,50 @@ r_scale_multi_curve_choice = []
 r_scale_multi_iter_variation = Vector3(0, 0, 0)
 r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
-[sub_resource type="Curve2D" id="Curve2D_5rj32"]
-
-[sub_resource type="Curve" id="Curve_cpnax"]
-
-[sub_resource type="Curve" id="Curve_hpune"]
-
-[sub_resource type="PackedDataContainer" id="PackedDataContainer_5xk2d"]
-script = ExtResource("5_i6mox")
+[sub_resource type="PackedDataContainer" id="PackedDataContainer_2n71m"]
+script = ExtResource("8_i2ptx")
 damage = 1.0
-speed = 100.0
+speed = 200.0
 scale = 1.0
 angle = 0.0
 groups = PackedStringArray()
+custom_data = {
+"test": Vector3(0, 2, 3)
+}
 death_after_time = 30.0
 death_outside_box = Rect2(0, 0, 0, 0)
 death_from_collision = true
 death_speed_under = 0.0
 death_culling_overwrite = 3
 spec_modulate_loop = 0.0
-anim_more = Array[Resource("res://addons/BulletUpHell/Bullet/animStates.gd")]([])
+no_rotation = false
+anim_more = Array[ExtResource("7_en8qh")]([])
 spec_trail_length = 0.0
 spec_trail_width = 0.0
 spec_trail_modulate = Color(1, 1, 1, 1)
+spec_trail_fade_out = false
+spec_trail_thin_out = false
+spec_trail_smooth = 0.03
 a_direction_equation = ""
 a_angular_equation = ""
 a_curve_movement = 0
 a_speed_multi_iterations = 0
 a_speed_multi_scale = 0.0
-a_speed_multiplier = SubResource("Curve_cpnax")
+a_speed_multiplier = SubResource("Curve_l5me8")
+depth_active = Vector2(0, 0)
+depth_spawn = 0.0
+depth_speed = 100.0
+depth_min_max = Vector2(-300, 100)
+depth_bounce = false
 spec_bounces = 0
 spec_no_collision = false
 spec_rotating_speed = 0.0
 spec_only_spin_sprite = true
+spec_weight = 1.0
 scale_multi_iterations = 0
-scale_multiplier = SubResource("Curve_hpune")
+scale_multiplier = SubResource("Curve_2xsyn")
 scale_multi_scale = 1.0
-trigger_container = "un"
+trigger_container = ""
 trigger_wait_for_shot = true
 homing_type = 0
 homing_target = NodePath("")
@@ -329,37 +305,50 @@ r_scale_multi_curve_choice = []
 r_scale_multi_iter_variation = Vector3(0, 0, 0)
 r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
-[sub_resource type="PackedDataContainer" id="PackedDataContainer_gfhfj"]
-script = ExtResource("5_i6mox")
+[sub_resource type="PackedDataContainer" id="PackedDataContainer_p1fha"]
+script = ExtResource("8_i2ptx")
 damage = 1.0
-speed = 300.0
+speed = 200.0
 scale = 1.0
 angle = 0.0
 groups = PackedStringArray()
+custom_data = {
+"test": Vector3(0, 2, 3)
+}
 death_after_time = 30.0
 death_outside_box = Rect2(0, 0, 0, 0)
 death_from_collision = true
 death_speed_under = 0.0
 death_culling_overwrite = 3
 spec_modulate_loop = 0.0
-anim_more = Array[Resource("res://addons/BulletUpHell/Bullet/animStates.gd")]([])
+no_rotation = false
+anim_more = Array[ExtResource("7_en8qh")]([])
 spec_trail_length = 0.0
 spec_trail_width = 0.0
 spec_trail_modulate = Color(1, 1, 1, 1)
+spec_trail_fade_out = false
+spec_trail_thin_out = false
+spec_trail_smooth = 0.03
 a_direction_equation = ""
 a_angular_equation = ""
 a_curve_movement = 0
 a_speed_multi_iterations = 0
 a_speed_multi_scale = 0.0
-a_speed_multiplier = SubResource("Curve_cpnax")
+a_speed_multiplier = SubResource("Curve_l5me8")
+depth_active = Vector2(0, 0)
+depth_spawn = 0.0
+depth_speed = 100.0
+depth_min_max = Vector2(-300, 100)
+depth_bounce = false
 spec_bounces = 0
 spec_no_collision = false
 spec_rotating_speed = 0.0
 spec_only_spin_sprite = true
+spec_weight = 0.1
 scale_multi_iterations = 0
-scale_multiplier = SubResource("Curve_hpune")
+scale_multiplier = SubResource("Curve_2xsyn")
 scale_multi_scale = 1.0
-trigger_container = "trois"
+trigger_container = ""
 trigger_wait_for_shot = true
 homing_type = 0
 homing_target = NodePath("")
@@ -409,176 +398,60 @@ r_scale_multi_curve_choice = []
 r_scale_multi_iter_variation = Vector3(0, 0, 0)
 r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
-[sub_resource type="PackedDataContainer" id="PackedDataContainer_m21jf"]
-script = ExtResource("5_i6mox")
-damage = 1.0
-speed = 300.0
-scale = 1.0
-angle = 0.0
-groups = PackedStringArray()
-death_after_time = 30.0
-death_outside_box = Rect2(0, 0, 0, 0)
-death_from_collision = true
-death_speed_under = 0.0
-death_culling_overwrite = 3
-spec_modulate_loop = 0.0
-anim_more = Array[Resource("res://addons/BulletUpHell/Bullet/animStates.gd")]([])
-spec_trail_length = 0.0
-spec_trail_width = 0.0
-spec_trail_modulate = Color(1, 1, 1, 1)
-a_direction_equation = ""
-a_angular_equation = ""
-a_curve_movement = 0
-a_speed_multi_iterations = 0
-a_speed_multi_scale = 0.0
-a_speed_multiplier = SubResource("Curve_cpnax")
-spec_bounces = 0
-spec_no_collision = false
-spec_rotating_speed = 0.0
-spec_only_spin_sprite = true
-scale_multi_iterations = 0
-scale_multiplier = SubResource("Curve_hpune")
-scale_multi_scale = 1.0
-trigger_container = "quatre"
-trigger_wait_for_shot = true
-homing_type = 0
-homing_target = NodePath("")
-homing_steer = 0.0
-homing_time_start = 0.0
-homing_duration = 999.0
-homing_detection_dist = 0.0
-homing_start_signal = ""
-homing_range = Vector2(9999, 20)
-homing_imprecision = Vector2(0, 0)
-r_randomisation_chances = 1.0
-r_speed_choice = PackedFloat32Array()
-r_speed_variation = Vector3(0, 0, 0)
-r_scale_choice = PackedFloat32Array()
-r_scale_variation = Vector3(0, 0, 0)
-r_angle_choice = PackedFloat32Array()
-r_angle_variation = Vector3(0, 0, 0)
-r_group_choice = []
-r_bounce_choice = PackedInt32Array()
-r_bounce_variation = Vector3(0, 0, 0)
-r_no_coll_chances = 0.0
-r_modulate_variation = Vector3(0, 0, 0)
-r_trail_length_variation = Vector3(0, 0, 0)
-r_trail_color_variation = Vector3(0, 0, 0)
-r_rotating_variation = Vector3(0, 0, 0)
-r_death_after_choice = PackedFloat32Array()
-r_death_after_variation = Vector3(0, 0, 0)
-r_death_outside_chances = 0.0
-r_dir_equation_choice = PackedStringArray()
-r_curve_choice = []
-r_speed_multi_curve_choice = []
-r_speed_multi_iter_variation = Vector3(0, 0, 0)
-r_speed_multi_scale_variation = Vector3(0, 0, 0)
-r_trigger_choice = PackedStringArray()
-r_wait_for_shot_chances = 0.0
-r_homing_target_choice = []
-r_special_target_choice = PackedStringArray()
-r_group_target_choice = PackedStringArray()
-r_pos_target_choice = PackedVector2Array()
-r_steer_choice = PackedFloat32Array()
-r_steer_variation = Vector3(0, 0, 0)
-r_homing_delay_choice = PackedFloat32Array()
-r_homing_delay_variation = Vector3(0, 0, 0)
-r_homing_dur_choice = PackedFloat32Array()
-r_homing_dur_variation = Vector3(0, 0, 0)
-r_scale_multi_curve_choice = []
-r_scale_multi_iter_variation = Vector3(0, 0, 0)
-r_scale_multi_scale_variation = Vector3(0, 0, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fti2u"]
+size = Vector2(122, 97.9995)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_y1qmf")
-
-[node name="TriggerContainer2" type="Node" parent="."]
-script = ExtResource("2_fwqwm")
-id = "deux"
-advanced_controls = "0=0
->0"
-triggers = Array[RichTextEffect]([SubResource("RichTextEffect_4ye41")])
-
-[node name="TriggerContainer" type="Node" parent="."]
-script = ExtResource("2_fwqwm")
-id = "un"
-advanced_controls = "0=0
->q"
-triggers = Array[RichTextEffect]([SubResource("RichTextEffect_oap44")])
-patterns = Array[NavigationPolygon]([SubResource("NavigationPolygon_vnfc6")])
-
-[node name="TriggerContainer3" type="Node" parent="."]
-script = ExtResource("2_fwqwm")
-id = "trois"
-advanced_controls = "0=0
->q"
-triggers = Array[RichTextEffect]([SubResource("RichTextEffect_lartf")])
-patterns = Array[NavigationPolygon]([SubResource("NavigationPolygon_vnfc6")])
-
-[node name="TriggerContainer4" type="Node" parent="."]
-script = ExtResource("2_fwqwm")
-id = "quatre"
-advanced_controls = "0=0
->q"
-triggers = Array[RichTextEffect]([SubResource("RichTextEffect_xk7l8")])
-patterns = Array[NavigationPolygon]([SubResource("NavigationPolygon_vnfc6")])
-
-[node name="NodeIcons5" type="Sprite2D" parent="."]
-position = Vector2(344, 448)
-texture = ExtResource("12_n1q54")
+process_mode = 3
+rotation = 6.28319
+script = ExtResource("1_tunqa")
 
 [node name="Patterns" type="Node2D" parent="."]
 
 [node name="SpawnPattern" type="Path2D" parent="Patterns"]
-curve = SubResource("Curve2D_usp2q")
-script = ExtResource("2_8fi2v")
-id = "1"
-pattern = SubResource("NavigationPolygon_iufug")
+curve = SubResource("Curve2D_u3j77")
+script = ExtResource("2_rnco7")
+id = "one"
+pattern = SubResource("NavigationPolygon_kt31x")
 
 [node name="SpawnPattern2" type="Path2D" parent="Patterns"]
-curve = SubResource("Curve2D_usp2q")
-script = ExtResource("2_8fi2v")
-id = "2"
-pattern = SubResource("NavigationPolygon_hbyap")
+curve = SubResource("Curve2D_u3j77")
+script = ExtResource("2_rnco7")
+id = "circle"
+pattern = SubResource("NavigationPolygon_iro43")
 
 [node name="SpawnPattern3" type="Path2D" parent="Patterns"]
-curve = SubResource("Curve2D_usp2q")
-script = ExtResource("2_8fi2v")
-id = "3"
-pattern = SubResource("NavigationPolygon_p6uu0")
+curve = SubResource("Curve2D_u3j77")
+script = ExtResource("2_rnco7")
+id = "line"
+pattern = SubResource("NavigationPolygon_txvqr")
 
 [node name="BulletProps" type="Node2D" parent="."]
 
-[node name="BulletPattern2" type="Path2D" parent="BulletProps"]
-curve = SubResource("Curve2D_i0ash")
-script = ExtResource("4_wpn57")
-id = "00"
-props = SubResource("PackedDataContainer_jj7bm")
-
 [node name="BulletPattern" type="Path2D" parent="BulletProps"]
-curve = SubResource("Curve2D_5rj32")
-script = ExtResource("4_wpn57")
-id = "one"
-props = SubResource("PackedDataContainer_5xk2d")
+curve = SubResource("Curve2D_kjhx3")
+script = ExtResource("6_3yoqa")
+id = "1"
+props = SubResource("PackedDataContainer_yktta")
+
+[node name="BulletPattern2" type="Path2D" parent="BulletProps"]
+curve = SubResource("Curve2D_kjhx3")
+script = ExtResource("6_3yoqa")
+id = "2"
+props = SubResource("PackedDataContainer_2n71m")
 
 [node name="BulletPattern3" type="Path2D" parent="BulletProps"]
-curve = SubResource("Curve2D_5rj32")
-script = ExtResource("4_wpn57")
-id = "two"
-props = SubResource("PackedDataContainer_gfhfj")
-
-[node name="BulletPattern4" type="Path2D" parent="BulletProps"]
-curve = SubResource("Curve2D_5rj32")
-script = ExtResource("4_wpn57")
-id = "three"
-props = SubResource("PackedDataContainer_m21jf")
+curve = SubResource("Curve2D_kjhx3")
+script = ExtResource("6_3yoqa")
+id = "3"
+props = SubResource("PackedDataContainer_p1fha")
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 
 [node name="SpawnPoint" type="Node2D" parent="SpawnPoints"]
-position = Vector2(52, 68)
-script = ExtResource("6_4dtj3")
-auto_pattern_id = "1"
+position = Vector2(109.001, 302)
+script = ExtResource("9_svjcx")
+auto_pattern_id = "one"
 r_active_chances = 1.0
 r_rotating_variation = Vector3(0, 0, 0)
 r_pattern_choice = ""
@@ -588,9 +461,12 @@ r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
 [node name="SpawnPoint2" type="Node2D" parent="SpawnPoints"]
-position = Vector2(51, 206)
-script = ExtResource("6_4dtj3")
-auto_pattern_id = "2"
+position = Vector2(451.001, 329.998)
+rotation = 0.487489
+script = ExtResource("9_svjcx")
+auto_pattern_id = "circle"
+rotating_speed = 0.1
+preview_delay = 0.1
 r_active_chances = 1.0
 r_rotating_variation = Vector3(0, 0, 0)
 r_pattern_choice = ""
@@ -600,10 +476,9 @@ r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
 [node name="SpawnPoint3" type="Node2D" parent="SpawnPoints"]
-position = Vector2(47, 334)
-rotation = 0.404204
-script = ExtResource("6_4dtj3")
-auto_pattern_id = "3"
+position = Vector2(762.001, 299.997)
+script = ExtResource("9_svjcx")
+auto_pattern_id = "line"
 r_active_chances = 1.0
 r_rotating_variation = Vector3(0, 0, 0)
 r_pattern_choice = ""
@@ -625,10 +500,21 @@ offset_right = 40.0
 offset_bottom = 14.0
 
 [node name="Tuto" type="Label" parent="."]
-offset_left = 512.0
-offset_top = 24.0
-offset_right = 1016.0
-offset_bottom = 232.0
-text = "Using Triggers, bullets themselves can trigger bullet spawn on certain events like collision, time, position or a signal.
-SpawnPoints can also be linked to a TriggerContainer to manage their spawning."
-autowrap_mode = 2
+offset_left = 23.0002
+offset_top = 45.9999
+offset_right = 892.001
+offset_bottom = 246.0
+text = "Go to Spawning.tscn and set the gravity to something else than 0,0 to see the system in action
+
+
+1- spawner's impulse property to launch the bullet with a force to go against gravity
+2- bullets in all directions affected by gravity
+3- change the bullet props' weigth to make it more/less affected by gravity"
+autowrap_mode = 1
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+position = Vector2(240.003, 687.999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(51.0002, 38.9997)
+shape = SubResource("RectangleShape2D_fti2u")

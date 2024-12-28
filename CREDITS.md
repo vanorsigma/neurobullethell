@@ -4,6 +4,6 @@ If something isn't listed below here, then I'm the one who made it. This include
 
 ## Assets
 
-- [BulletUpHell](https://github.com/Dark-Peace/BulletUpHell) for the bullet hell plugin
+- [BulletUpHell BLAST](https://bottled-up-studio.itch.io/godot-bullethell-plugin/devlog/839720/v456-bug-fixes-optimisation-and-api) for the bullet hell plugin
 - [Dialogue Manager for Godot 4](https://github.com/nathanhoad/godot_dialogue_manager) for the dialogue manager
 - [Kenny's All-in-One](https://kenney.itch.io/kenney-game-assets) for any placeholder assets, absolutely goated individual

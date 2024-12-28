@@ -8,27 +8,33 @@ class_name customFunctions
 ## because your code would be overwritten at each plugin update
 ###
 
-func bullet_collide_body(body_rid:RID,body:Node,body_shape_index:int,local_shape_index:int,shared_area:Area2D, B:Dictionary, b:RID) -> void:
+
+
+func laser_collide(col_pos:Vector2, collider:Node, normal:Vector2, full_length:float, laser:LaserBeam):
+	## you can add custom properties to a laser by using metadata
+	pass
+
+func bullet_collide_body(body_rid:RID,body:Node,body_shape_index:int,local_shape_index:int,shared_area:Area2D, B:Dictionary) -> void:
 	Globals.bullet_hit.emit(body, B["props"]["damage"])
 	## you can use B["props"]["damage"] to get the bullet's damage
+	## you can use B["RID"] to get the bullet's RID
 	## you can use B["props"]["<your custom data name>"] to get the bullet's custom data
+
+	pass
 
 
 func bullet_collide_area(area_rid:RID,area:Area2D,area_shape_index:int,local_shape_index:int,shared_area:Area2D) -> void:
-	var rid = Spawning.shape_rids.get(shared_area.name, {}).get(local_shape_index)
-	if not Spawning.poolBullets.has(rid):
-		return
-	var B = Spawning.poolBullets[rid]
+	var B = shared_area.get_meta("Bullets")[local_shape_index]
 	Globals.bullet_hit.emit(area, B["props"]["damage"])
-	Spawning.delete_bullet(rid)
-
-	## you can use B["props"]["damage"] to get the bullet's damage
-	## you can use B["props"]["<your custom data name>"] to get the bullet's custom data
-
+	Spawning.delete_bullet(B)
 	############## uncomment if you want to use the standard behavior below ##############
-	#var rid = Spawning.shape_rids.get(shared_area.name, {}).get(local_shape_index)
-	#if not Spawning.poolBullets.has(rid): return
-	#var B = Spawning.poolBullets[rid]
+	## you can use B["props"]["damage"] to get the bullet's damage
+	## you can use B["RID"] to get the bullet's RID
+	## you can use B["props"]["<your custom data name>"] to get the bullet's custom data
+	#var B:Dictionary
+	#if shared_area.get_parent() == $SharedAreas:
+		#B = shared_area.get_meta("Bullets")[local_shape_index]
+	#else: B = poolBullets[shared_area]
 
 	############## emit signal
 #	Spawning.bullet_collided_area.emit(area,area_shape_index,B,local_shape_index,shared_area)
@@ -36,5 +42,5 @@ func bullet_collide_area(area_rid:RID,area:Area2D,area_shape_index:int,local_sha
 	############## uncomment to manage trigger collisions with area collisions
 #	if B["trig_types"].has("TrigCol"):
 #		B["trig_collider"] = area
-#		B["trig_container"].checkTriggers(B, rid)
+#		B["trig_container"].checkTriggers(B)
 	pass

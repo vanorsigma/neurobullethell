@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://28npd4mcg44"
-path="res://.godot/imported/NodeIcons2.png-9da57de4b19b0c088a8f41872eaa0643.ctex"
+uid="uid://bjoyqa7cqeivm"
+path="res://.godot/imported/NodeIcons23.png-94243d93bd750794620f18a38d4148e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/BulletUpHell/Sprites/NodeIcons2.png"
-dest_files=["res://.godot/imported/NodeIcons2.png-9da57de4b19b0c088a8f41872eaa0643.ctex"]
+source_file="res://addons/BulletUpHell/Sprites/NodeIcons23.png"
+dest_files=["res://.godot/imported/NodeIcons23.png-94243d93bd750794620f18a38d4148e5.ctex"]
 
 [params]
 
