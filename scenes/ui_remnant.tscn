@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlb1e0yeqswu5"]
+
+[ext_resource type="Script" path="res://scripts/ui_remnant.gd" id="1_76tbf"]
+[ext_resource type="Theme" uid="uid://hsneaacuslws" path="res://default.tres" id="1_k7mko"]
+[ext_resource type="Texture2D" uid="uid://b0dxt4r2iejpf" path="res://assets/box.png" id="2_q0ue5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6r14a"]
+size = Vector2(156, 156)
+
+[node name="UiRemnant" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("1_76tbf")
+
+[node name="RemnantSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.78, 0.78)
+texture = ExtResource("2_q0ue5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_6r14a")
+
+[node name="Panel" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 26.0
+offset_top = 29.0
+offset_right = 244.0
+offset_bottom = 114.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+layout_mode = 2
+color = Color(0.262932, 0.262932, 0.262932, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_k7mko")
+text = "Something"
+
+[node name="Description" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_k7mko")
+theme_override_font_sizes/font_size = 16
+text = "Does something and things"
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

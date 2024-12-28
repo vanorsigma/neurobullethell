@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddm6msnj1mnyp"]
+[gd_scene load_steps=20 format=3 uid="uid://ddm6msnj1mnyp"]
 
 [ext_resource type="PackedScene" uid="uid://bvd7e5klrnr21" path="res://scenes/player.tscn" id="1_6htfp"]
 [ext_resource type="Script" path="res://scripts/levels/tutorial.gd" id="1_7l1hb"]
@@ -119,15 +119,24 @@ r_scale_multi_curve_choice = []
 r_scale_multi_iter_variation = Vector3(0, 0, 0)
 r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gsmqk"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q1usy"]
+normal = Vector2(-0.00507608, 0.999987)
+distance = 2.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sbujn"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lr24b"]
+normal = Vector2(-0.999783, 0.0208288)
+
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_7l1hb")
 
 [node name="Player" parent="." instance=ExtResource("1_6htfp")]
 position = Vector2(389, 336)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-limit_left = 0
-limit_right = 800
+collision_mask = 3
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -163,3 +172,28 @@ auto_start_after_time = 0.0
 auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
 trigger_container = NodePath("")
+
+[node name="WorldCamera" type="Camera2D" parent="."]
+position = Vector2(435, 301)
+limit_left = 0
+limit_right = 800
+
+[node name="World" type="StaticBody2D" parent="WorldCamera"]
+position = Vector2(-430, -137)
+collision_layer = 2
+collision_mask = 2
+
+[node name="WorldBoundaryBottom" type="CollisionShape2D" parent="WorldCamera/World"]
+position = Vector2(397, 437)
+shape = SubResource("WorldBoundaryShape2D_gsmqk")
+
+[node name="WorldBoundaryTop" type="CollisionShape2D" parent="WorldCamera/World"]
+position = Vector2(389, -162)
+shape = SubResource("WorldBoundaryShape2D_q1usy")
+
+[node name="WorldBoundaryLeft" type="CollisionShape2D" parent="WorldCamera/World"]
+shape = SubResource("WorldBoundaryShape2D_sbujn")
+
+[node name="WorldBoundaryRight" type="CollisionShape2D" parent="WorldCamera/World"]
+position = Vector2(796, 42)
+shape = SubResource("WorldBoundaryShape2D_lr24b")

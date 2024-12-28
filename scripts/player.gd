@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var base_speed: float = 100
-@export var health: float = 100
-@export var shield: float = 100
+@export var base_speed: float = 500
+@export var health: float = 999999
+@export var shield: float = 999999
 
 func _ready() -> void:
 	Globals.bullet_hit.connect(_on_bullet_hit_dispatcher)
