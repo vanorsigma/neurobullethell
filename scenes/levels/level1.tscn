@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://barar31oa6hjl"]
+[gd_scene load_steps=35 format=3 uid="uid://barar31oa6hjl"]
 
 [ext_resource type="Texture2D" uid="uid://bmlccldrc12ri" path="res://assets/parallex.png" id="1_2kxtn"]
 [ext_resource type="PackedScene" uid="uid://b4n5yu0pn2k6j" path="res://scenes/levels/base_level.tscn" id="2_ewhb7"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternLine.gd" id="6_fw6vw"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="6_ilff8"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHSpawnPoint.gd" id="7_uq1ha"]
+[ext_resource type="AudioStream" uid="uid://dhjx8bjwkl32u" path="res://assets/level1.wav" id="11_e46mv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_208ol"]
 resource_name = "PatternOne"
@@ -173,6 +174,240 @@ bullet_list = Array[String]([])
 skip_step = 0
 skip_list = Array[PackedInt32Array]([])
 skip_in_list = true
+
+[sub_resource type="Curve2D" id="Curve2D_stdsi"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_t0855"]
+resource_name = "PatternLine"
+script = ExtResource("6_fw6vw")
+offset = Vector2(0, 200)
+center = 0
+symmetric = false
+bullet = "FastBullet"
+nbr = 20
+iterations = 20
+cooldown_spawn = 1.0
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+cooldown_layers = PackedVector2Array()
+cooldown_stasis = false
+on_interruption = 0
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+wait_behavior = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+forced_angle = 3.14159
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+impulse = 0
+bullet_list = Array[String]([])
+skip_step = 0
+skip_list = Array[PackedInt32Array]([])
+skip_in_list = true
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_j7iri"]
+resource_name = "PatternLine"
+script = ExtResource("6_fw6vw")
+offset = Vector2(0, 200)
+center = 0
+symmetric = false
+bullet = "FastBullet"
+nbr = 20
+iterations = 20
+cooldown_spawn = 1.0
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+cooldown_layers = PackedVector2Array()
+cooldown_stasis = false
+on_interruption = 0
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+wait_behavior = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+impulse = 0
+bullet_list = Array[String]([])
+skip_step = 0
+skip_list = Array[PackedInt32Array]([])
+skip_in_list = true
+
+[sub_resource type="Curve2D" id="Curve2D_nj02q"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_v776c"]
+resource_name = "PatternLine"
+script = ExtResource("6_fw6vw")
+offset = Vector2(0, 150)
+center = 0
+symmetric = true
+bullet = "RapidBullet"
+nbr = 30
+iterations = 100
+cooldown_spawn = 1.0
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+cooldown_layers = PackedVector2Array()
+cooldown_stasis = false
+on_interruption = 0
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+wait_behavior = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+impulse = 0
+bullet_list = Array[String]([])
+skip_step = 0
+skip_list = Array[PackedInt32Array]([])
+skip_in_list = true
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_1egss"]
+resource_name = "PatternLine"
+script = ExtResource("6_fw6vw")
+offset = Vector2(0, 150)
+center = 0
+symmetric = true
+bullet = "RapidBullet"
+nbr = 20
+iterations = 100
+cooldown_spawn = 1.0
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+cooldown_layers = PackedVector2Array()
+cooldown_stasis = false
+on_interruption = 0
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+wait_behavior = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+forced_angle = 3.14159
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+impulse = 0
+bullet_list = Array[String]([])
+skip_step = 0
+skip_list = Array[PackedInt32Array]([])
+skip_in_list = true
+
+[sub_resource type="Curve2D" id="Curve2D_deixi"]
+
+[sub_resource type="Curve" id="Curve_hn7kv"]
+
+[sub_resource type="Curve" id="Curve_pdqy7"]
+
+[sub_resource type="PackedDataContainer" id="PackedDataContainer_0rbr4"]
+script = ExtResource("6_d2iqa")
+damage = 100.0
+speed = 400.0
+scale = 1.0
+angle = 0.0
+groups = PackedStringArray()
+custom_data = {}
+death_after_time = 30.0
+death_outside_box = Rect2(0, 0, 0, 0)
+death_from_collision = true
+death_speed_under = 0.0
+death_culling_overwrite = 3
+spec_modulate_loop = 0.0
+no_rotation = false
+z_index = 0
+anim_more = Array[ExtResource("5_1hd6t")]([])
+spec_trail_length = 0.0
+spec_trail_width = 0.0
+spec_trail_modulate = Color(1, 1, 1, 1)
+spec_trail_fade_out = false
+spec_trail_thin_out = false
+spec_trail_smooth = 0.03
+a_direction_equation = ""
+a_angular_equation = ""
+a_curve_movement = 0
+a_speed_multi_iterations = 0
+a_speed_multi_scale = 0.0
+a_speed_multiplier = SubResource("Curve_hn7kv")
+depth_active = Vector2(0, 0)
+depth_spawn = 0.0
+depth_speed = 100.0
+depth_min_max = Vector2(-300, 100)
+depth_bounce = false
+spec_bounces = 0
+spec_no_collision = false
+spec_rotating_speed = 0.0
+spec_only_spin_sprite = true
+spec_weight = 1.0
+scale_multi_iterations = 0
+scale_multiplier = SubResource("Curve_pdqy7")
+scale_multi_scale = 1.0
+trigger_container = ""
+trigger_wait_for_shot = true
+homing_type = 0
+homing_target = NodePath("")
+homing_steer = 0.0
+homing_time_start = 0.0
+homing_duration = 999.0
+homing_detection_dist = 0.0
+homing_start_signal = ""
+homing_range = Vector2(9999, 20)
+homing_imprecision = Vector2(0, 0)
+r_randomisation_chances = 1.0
+r_speed_choice = PackedFloat32Array()
+r_speed_variation = Vector3(0, 0, 0)
+r_scale_choice = PackedFloat32Array()
+r_scale_variation = Vector3(0, 0, 0)
+r_angle_choice = PackedFloat32Array()
+r_angle_variation = Vector3(0, 0, 0)
+r_group_choice = []
+r_bounce_choice = PackedInt32Array()
+r_bounce_variation = Vector3(0, 0, 0)
+r_no_coll_chances = 0.0
+r_modulate_variation = Vector3(0, 0, 0)
+r_trail_length_variation = Vector3(0, 0, 0)
+r_trail_color_variation = Vector3(0, 0, 0)
+r_rotating_variation = Vector3(0, 0, 0)
+r_death_after_choice = PackedFloat32Array()
+r_death_after_variation = Vector3(0, 0, 0)
+r_death_outside_chances = 0.0
+r_dir_equation_choice = PackedStringArray()
+r_curve_choice = []
+r_speed_multi_curve_choice = []
+r_speed_multi_iter_variation = Vector3(0, 0, 0)
+r_speed_multi_scale_variation = Vector3(0, 0, 0)
+r_trigger_choice = PackedStringArray()
+r_wait_for_shot_chances = 0.0
+r_homing_target_choice = []
+r_special_target_choice = PackedStringArray()
+r_group_target_choice = PackedStringArray()
+r_pos_target_choice = PackedVector2Array()
+r_steer_choice = PackedFloat32Array()
+r_steer_variation = Vector3(0, 0, 0)
+r_homing_delay_choice = PackedFloat32Array()
+r_homing_delay_variation = Vector3(0, 0, 0)
+r_homing_dur_choice = PackedFloat32Array()
+r_homing_dur_variation = Vector3(0, 0, 0)
+r_scale_multi_curve_choice = []
+r_scale_multi_iter_variation = Vector3(0, 0, 0)
+r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
 [sub_resource type="Curve" id="Curve_84o56"]
 
@@ -378,7 +613,7 @@ scale = Vector2(4.005, 37.9275)
 texture = ExtResource("1_2kxtn")
 
 [node name="BaseLevel" parent="." instance=ExtResource("2_ewhb7")]
-position = Vector2(-5, 2)
+position = Vector2(-5, 13)
 
 [node name="PewPewPewFast" type="Path2D" parent="."]
 position = Vector2(-20, -134)
@@ -411,6 +646,36 @@ script = ExtResource("3_nncgb")
 id = "LineFast"
 pattern = SubResource("NavigationPolygon_ql7h1")
 
+[node name="LineFastRight" type="Path2D" parent="."]
+curve = SubResource("Curve2D_stdsi")
+script = ExtResource("3_nncgb")
+id = "LineFastRight"
+pattern = SubResource("NavigationPolygon_t0855")
+
+[node name="LineFastLeft" type="Path2D" parent="."]
+curve = SubResource("Curve2D_stdsi")
+script = ExtResource("3_nncgb")
+id = "LineFastLeft"
+pattern = SubResource("NavigationPolygon_j7iri")
+
+[node name="SqueezeThrough" type="Path2D" parent="."]
+curve = SubResource("Curve2D_nj02q")
+script = ExtResource("3_nncgb")
+id = "SqueezeThrough"
+pattern = SubResource("NavigationPolygon_v776c")
+
+[node name="SqueezeThroughRight" type="Path2D" parent="."]
+curve = SubResource("Curve2D_nj02q")
+script = ExtResource("3_nncgb")
+id = "SqueezeThroughRight"
+pattern = SubResource("NavigationPolygon_1egss")
+
+[node name="RapidBullet" type="Path2D" parent="."]
+curve = SubResource("Curve2D_deixi")
+script = ExtResource("4_nt1vn")
+id = "RapidBullet"
+props = SubResource("PackedDataContainer_0rbr4")
+
 [node name="FastBullet" type="Path2D" parent="."]
 script = ExtResource("4_nt1vn")
 id = "FastBullet"
@@ -421,7 +686,9 @@ script = ExtResource("4_nt1vn")
 id = "SlowBullet"
 props = SubResource("PackedDataContainer_57pd1")
 
-[node name="SP1" type="Node2D" parent="."]
+[node name="Pattern1" type="Node2D" parent="."]
+
+[node name="SP1" type="Node2D" parent="Pattern1"]
 position = Vector2(40, -218)
 script = ExtResource("7_uq1ha")
 auto_pattern_id = "PewPewPewFast"
@@ -434,7 +701,7 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
-[node name="SP2" type="Node2D" parent="."]
+[node name="SP2" type="Node2D" parent="Pattern1"]
 position = Vector2(742, -221)
 script = ExtResource("7_uq1ha")
 auto_pattern_id = "PewPewPewFast"
@@ -447,7 +714,7 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
-[node name="SP3" type="Node2D" parent="."]
+[node name="SP3" type="Node2D" parent="Pattern1"]
 position = Vector2(400, -1110)
 script = ExtResource("7_uq1ha")
 auto_pattern_id = "PewPewPewSlow"
@@ -461,7 +728,7 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
-[node name="SP4" type="Node2D" parent="."]
+[node name="SP4" type="Node2D" parent="Pattern1"]
 position = Vector2(66, -1941)
 script = ExtResource("7_uq1ha")
 auto_pattern_id = "CircleFast"
@@ -473,7 +740,7 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
-[node name="SP5" type="Node2D" parent="."]
+[node name="SP5" type="Node2D" parent="Pattern1"]
 position = Vector2(748, -1930)
 script = ExtResource("7_uq1ha")
 auto_pattern_id = "CircleFast"
@@ -485,7 +752,7 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
-[node name="SP6" type="Node2D" parent="."]
+[node name="SP6" type="Node2D" parent="Pattern1"]
 position = Vector2(276, -2584)
 script = ExtResource("7_uq1ha")
 auto_pattern_id = "PewPewPewNoTarget"
@@ -498,7 +765,7 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
-[node name="SP7" type="Node2D" parent="."]
+[node name="SP7" type="Node2D" parent="Pattern1"]
 position = Vector2(526, -2588)
 script = ExtResource("7_uq1ha")
 auto_pattern_id = "PewPewPewNoTarget"
@@ -511,7 +778,7 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
-[node name="SP8" type="Node2D" parent="."]
+[node name="SP8" type="Node2D" parent="Pattern1"]
 position = Vector2(687, -3738)
 script = ExtResource("7_uq1ha")
 auto_pattern_id = "PewPewPewFast"
@@ -524,7 +791,7 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
-[node name="SP9" type="Node2D" parent="."]
+[node name="SP9" type="Node2D" parent="Pattern1"]
 position = Vector2(104, -3745)
 script = ExtResource("7_uq1ha")
 auto_pattern_id = "CircleFast"
@@ -536,13 +803,13 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
-[node name="SP10" type="Node2D" parent="."]
+[node name="SP10" type="Node2D" parent="Pattern1"]
 position = Vector2(523, -4257)
 script = ExtResource("7_uq1ha")
 auto_pattern_id = "LineFast"
 pool_amount = 1
 auto_start_at_distance = 500.0
-auto_distance_from = NodePath("../BaseLevel/Player")
+auto_distance_from = NodePath("../../BaseLevel/Player")
 r_active_chances = 1.0
 r_rotating_variation = Vector3(0, 0, 0)
 r_pattern_choice = ""
@@ -551,14 +818,14 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
-[node name="SP11" type="Node2D" parent="."]
+[node name="SP11" type="Node2D" parent="Pattern1"]
 position = Vector2(282, -4257)
 scale = Vector2(124.737, 1)
 script = ExtResource("7_uq1ha")
 auto_pattern_id = "LineFast"
 pool_amount = 1
 auto_start_at_distance = 500.0
-auto_distance_from = NodePath("../BaseLevel/Player")
+auto_distance_from = NodePath("../../BaseLevel/Player")
 r_active_chances = 1.0
 r_rotating_variation = Vector3(0, 0, 0)
 r_pattern_choice = ""
@@ -566,3 +833,348 @@ r_start_time_choice = ""
 r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP12" type="Node2D" parent="Pattern1"]
+position = Vector2(78, -4761)
+scale = Vector2(124.737, 1)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "LineFastRight"
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP13" type="Node2D" parent="Pattern1"]
+position = Vector2(78, -4761)
+scale = Vector2(124.737, 1)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "LineFastLeft"
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP14" type="Node2D" parent="Pattern1"]
+position = Vector2(748, -5402)
+scale = Vector2(124.737, 1)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "LineFastRight"
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP15" type="Node2D" parent="Pattern1"]
+position = Vector2(82, -6418)
+scale = Vector2(124.737, 1)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "PewPewPewNoTarget"
+rotating_speed = 1.0
+pool_amount = 200
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP16" type="Node2D" parent="Pattern1"]
+position = Vector2(703, -6418)
+scale = Vector2(124.737, 1)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "PewPewPewNoTarget"
+rotating_speed = 1.0
+pool_amount = 200
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP17" type="Node2D" parent="Pattern1"]
+position = Vector2(37, -7595)
+scale = Vector2(124.737, 1)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "SqueezeThrough"
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP18" type="Node2D" parent="Pattern1"]
+position = Vector2(748, -8132)
+scale = Vector2(124.737, 1)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "SqueezeThroughRight"
+pool_amount = 100
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="Pattern2" type="Node2D" parent="."]
+position = Vector2(-22, -8495)
+
+[node name="SP1" type="Node2D" parent="Pattern2"]
+position = Vector2(40, -218)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "PewPewPewFast"
+pool_amount = 100
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP2" type="Node2D" parent="Pattern2"]
+position = Vector2(742, -221)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "PewPewPewFast"
+pool_amount = 100
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP3" type="Node2D" parent="Pattern2"]
+position = Vector2(400, -1110)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "PewPewPewSlow"
+rotating_speed = 0.01
+pool_amount = 100
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP4" type="Node2D" parent="Pattern2"]
+position = Vector2(66, -1941)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "CircleFast"
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP5" type="Node2D" parent="Pattern2"]
+position = Vector2(748, -1930)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "CircleFast"
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP6" type="Node2D" parent="Pattern2"]
+position = Vector2(276, -2584)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "PewPewPewNoTarget"
+rotating_speed = 0.2
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP7" type="Node2D" parent="Pattern2"]
+position = Vector2(526, -2588)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "PewPewPewNoTarget"
+rotating_speed = 0.2
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP8" type="Node2D" parent="Pattern2"]
+position = Vector2(687, -3738)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "PewPewPewFast"
+pool_amount = 100
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP9" type="Node2D" parent="Pattern2"]
+position = Vector2(104, -3745)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "CircleFast"
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP10" type="Node2D" parent="Pattern2"]
+position = Vector2(523, -4257)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "LineFast"
+pool_amount = 1
+auto_start_at_distance = 500.0
+auto_distance_from = NodePath("../../BaseLevel/Player")
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP11" type="Node2D" parent="Pattern2"]
+position = Vector2(282, -4257)
+scale = Vector2(124.737, 1)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "LineFast"
+pool_amount = 1
+auto_start_at_distance = 500.0
+auto_distance_from = NodePath("../../BaseLevel/Player")
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP12" type="Node2D" parent="Pattern2"]
+position = Vector2(78, -4761)
+scale = Vector2(124.737, 1)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "LineFastRight"
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP13" type="Node2D" parent="Pattern2"]
+position = Vector2(78, -4761)
+scale = Vector2(124.737, 1)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "LineFastLeft"
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP14" type="Node2D" parent="Pattern2"]
+position = Vector2(748, -5402)
+scale = Vector2(124.737, 1)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "LineFastRight"
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP15" type="Node2D" parent="Pattern2"]
+position = Vector2(82, -6418)
+scale = Vector2(124.737, 1)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "PewPewPewNoTarget"
+rotating_speed = 1.0
+pool_amount = 200
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP16" type="Node2D" parent="Pattern2"]
+position = Vector2(703, -6418)
+scale = Vector2(124.737, 1)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "PewPewPewNoTarget"
+rotating_speed = 1.0
+pool_amount = 200
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP17" type="Node2D" parent="Pattern2"]
+position = Vector2(37, -7595)
+scale = Vector2(124.737, 1)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "SqueezeThrough"
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP18" type="Node2D" parent="Pattern2"]
+position = Vector2(748, -8132)
+scale = Vector2(124.737, 1)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "SqueezeThroughRight"
+pool_amount = 100
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_e46mv")
+autoplay = true

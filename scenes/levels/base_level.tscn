@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4n5yu0pn2k6j"]
+[gd_scene load_steps=8 format=3 uid="uid://b4n5yu0pn2k6j"]
 
 [ext_resource type="Script" path="res://scripts/levels/base_level.gd" id="1_bhbvf"]
 [ext_resource type="PackedScene" uid="uid://bvd7e5klrnr21" path="res://scenes/player.tscn" id="2_j5l8e"]
+[ext_resource type="AudioStream" uid="uid://dhjx8bjwkl32u" path="res://assets/level1.wav" id="3_5hbxy"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lo3ou"]
 
@@ -46,3 +47,9 @@ shape = SubResource("WorldBoundaryShape2D_3tnku")
 [node name="WorldBoundaryRight" type="CollisionShape2D" parent="WorldCamera/World"]
 position = Vector2(796, 42)
 shape = SubResource("WorldBoundaryShape2D_qp3d3")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Node2D"]
+stream = ExtResource("3_5hbxy")
+autoplay = true
