@@ -4,8 +4,8 @@ enum Direction { UP, LEFT, RIGHT, IDLE }
 
 @export var base_speed: float = 100
 @export var boots_modifier: float = 5
-@export var health: float = 999999
-@export var shield: float = 999999
+@export var health: float = 500
+@export var shield: float = 500
 
 @export var has_shield: bool = true
 @export var has_boots = true
@@ -27,19 +27,27 @@ func _ready() -> void:
 
 
 func _on_bullet_hit_dispatcher(body: Node, damage: int) -> void:
-	if body == self:
-		_on_player_hit(damage)
+	if body == self or body == $Shield:
+		do_damage(damage)
 
-	if body == $Shield:
-		_on_shield_hit(damage)
+func do_damage(damage: int, bypass_crown: bool = false) -> void:
+	var potential_hp_damage = max(0, damage - shield)
 
-func _on_player_hit(damage: int) -> void:
-	health -= damage
+	if has_shield:
+		if has_crown and not bypass_crown:
+			return
+		shield = max(0, shield - damage)
 
-func _on_shield_hit(damage: int) -> void:
-	if has_crown:
-		return
-	shield = max(0, shield - damage)
+	health -= potential_hp_damage
+	if health <= 0:
+		_die()
+
+func _die() -> void:
+	$Explosion.visible = true
+	$Explosion/Audio.play()
+	$Explosion.play("default")
+	await $Explosion.animation_finished
+	Globals.game_over.emit()
 
 func _play_animation(direction: Direction) -> void:
 	match direction:
@@ -94,6 +102,7 @@ func _play_animation(direction: Direction) -> void:
 			crown.play("up")
 
 	previous_direction = direction
+	$Shield/ShieldSprite.play("crowned" if has_crown else "default")
 
 func _process(delta: float) -> void:
 	$Shield.visible = shield > 0
@@ -116,7 +125,8 @@ func _process(delta: float) -> void:
 
 	_play_animation(animation_direction)
 
-	$DebugLabel.text = "Health: " + str(health) + "\nShield: " + str(shield)
+	# put global position of self in debuglabel
+	$DebugLabel.text = str(global_position)
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()

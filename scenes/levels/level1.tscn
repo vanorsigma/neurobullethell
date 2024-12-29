@@ -1,6 +1,7 @@
-[gd_scene load_steps=41 format=4 uid="uid://barar31oa6hjl"]
+[gd_scene load_steps=44 format=4 uid="uid://barar31oa6hjl"]
 
 [ext_resource type="Texture2D" uid="uid://bmlccldrc12ri" path="res://assets/parallex.png" id="1_2kxtn"]
+[ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_x0y1b"]
 [ext_resource type="Texture2D" uid="uid://b8rwcw6rxrvb7" path="res://assets/city.png" id="2_3sce8"]
 [ext_resource type="PackedScene" uid="uid://b4n5yu0pn2k6j" path="res://scenes/levels/base_level.tscn" id="2_ewhb7"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHPattern.gd" id="3_nncgb"]
@@ -12,6 +13,7 @@
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="6_ilff8"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHSpawnPoint.gd" id="7_uq1ha"]
 [ext_resource type="AudioStream" uid="uid://dhjx8bjwkl32u" path="res://assets/level1.wav" id="11_e46mv"]
+[ext_resource type="Texture2D" uid="uid://f8irq202fdgn" path="res://addons/BulletUpHell/Bullet/Sprites/Bullet_3.png" id="12_4ssn8"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_btd1s"]
 tile_data = PackedInt32Array(0, 2031616, 10, 65536, 2031616, 11)
@@ -1073,7 +1075,7 @@ script = ExtResource("6_0h8py")
 bullet = "FastBullet"
 nbr = 1
 iterations = 50
-cooldown_spawn = 0.2
+cooldown_spawn = 0.4
 cooldown_shoot = 0.0
 cooldown_next_spawn = 0.0
 cooldown_next_shoot = 0.0
@@ -1656,11 +1658,16 @@ r_scale_multi_curve_choice = []
 r_scale_multi_iter_variation = Vector3(0, 0, 0)
 r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17f7y"]
+size = Vector2(836, 20)
+
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_x0y1b")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(7, 7)
 motion_mirroring = Vector2(0, 640)
 
 [node name="Layer0" type="TileMapLayer" parent="ParallaxBackground/ParallaxLayer"]
@@ -1679,9 +1686,6 @@ visible = false
 position = Vector2(399, -14568)
 scale = Vector2(4.005, 37.9275)
 texture = ExtResource("1_2kxtn")
-
-[node name="BaseLevel" parent="." instance=ExtResource("2_ewhb7")]
-position = Vector2(-5, 13)
 
 [node name="PewPewPewFast" type="Path2D" parent="."]
 position = Vector2(-20, -134)
@@ -2243,6 +2247,302 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
+[node name="FollowPattern1" type="Node2D" parent="."]
+position = Vector2(75, -17258)
+
+[node name="ExpiryTimer" type="Timer" parent="FollowPattern1"]
+wait_time = 30.0
+one_shot = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="FollowPattern1"]
+
+[node name="SP1" type="Node2D" parent="FollowPattern1"]
+visible = false
+position = Vector2(-19, 54)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "PewPewPewFast"
+pool_amount = 500
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP2" type="Node2D" parent="FollowPattern1"]
+visible = false
+position = Vector2(635, 335)
+script = ExtResource("7_uq1ha")
+auto_pattern_id = "PewPewPewFast"
+pool_amount = 500
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="AntiCrown" type="Node2D" parent="."]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(0, -8371)
+
+[node name="Ball1" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball2" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(21, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball3" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(42, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball4" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(62, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball5" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(83, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball6" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(104, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball7" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(125, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball8" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(146, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball9" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(167, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball10" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(188, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball11" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(209, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball12" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(229, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball13" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(250, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball14" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(271, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball15" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(292, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball16" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(313, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball17" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(334, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball18" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(355, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball19" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(376, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball20" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(397, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball21" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(418, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball22" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(438, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball23" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(459, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball24" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(480, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball25" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(501, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball26" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(522, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball27" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(543, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball28" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(564, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball29" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(585, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball30" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(605, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball31" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(626, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball32" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(647, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball33" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(668, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball34" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(689, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball35" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(710, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball36" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(731, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball37" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(752, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball38" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(773, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball39" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(794, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Ball40" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(815, 0)
+texture = ExtResource("12_4ssn8")
+
+[node name="Area2D" type="Area2D" parent="AntiCrown"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AntiCrown/Area2D"]
+position = Vector2(408, 0)
+shape = SubResource("RectangleShape2D_17f7y")
+
+[node name="endmarkerprobably" type="Node2D" parent="."]
+position = Vector2(0, -19499)
+
+[node name="BaseLevel" parent="." node_paths=PackedStringArray("onCameraMakeVisibleAndFollow") instance=ExtResource("2_ewhb7")]
+position = Vector2(0, -7430)
+onCameraMakeVisibleAndFollow = [NodePath("../FollowPattern1")]
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_e46mv")
 autoplay = true
+
+[connection signal="body_entered" from="AntiCrown/Area2D" to="." method="_on_area_2d_body_entered"]

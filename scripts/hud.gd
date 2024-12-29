@@ -19,4 +19,4 @@ func _process(delta: float) -> void:
 	$HPBar.max_value = max_hp
 	$ShieldBar.value = shield
 	$ShieldBar.max_value = max_shield
-	$ShieldBar/Crowned.visible = has_crown
+	$ShieldBar/Crowned.visible = has_crown and shield > 0
