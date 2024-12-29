@@ -18,6 +18,7 @@ func _ready() -> void:
 		endingNotifier.screen_entered.connect(self._on_ending_visible)
 
 	hud.max_hp = $Player.health
+	dash.visible = not $Player.has_boots
 	dash.max_value = blinkCooldownTimer.wait_time
 	hud.max_shield = $Player.shield
 

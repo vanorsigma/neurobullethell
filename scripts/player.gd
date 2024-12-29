@@ -159,7 +159,7 @@ func _process(delta: float) -> void:
 		velocity.x = base_speed * (boots_modifier if has_boots else 1.0)
 		animation_direction = Direction.RIGHT
 
-	if Input.is_action_pressed("blink") and $BlinkCooldownTimer.is_stopped():
+	if Input.is_action_pressed("blink") and $BlinkCooldownTimer.is_stopped() and not has_boots:
 		invincible = true
 		velocity.x *= blink_speed_modifier
 		velocity.y *= blink_speed_modifier
