@@ -1667,7 +1667,6 @@ script = ExtResource("1_x0y1b")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(7, 7)
 motion_mirroring = Vector2(0, 640)
 
 [node name="Layer0" type="TileMapLayer" parent="ParallaxBackground/ParallaxLayer"]

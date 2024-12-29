@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 enum Direction { UP, LEFT, RIGHT, IDLE }
 
@@ -19,6 +20,7 @@ enum Direction { UP, LEFT, RIGHT, IDLE }
 var previous_direction: Direction = Direction.IDLE
 
 func _ready() -> void:
+	Globals.player = self
 	Globals.bullet_hit.connect(_on_bullet_hit_dispatcher)
 
 	flightBoots.visible = has_boots
