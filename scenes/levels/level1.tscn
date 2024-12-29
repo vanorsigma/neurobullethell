@@ -2537,6 +2537,7 @@ shape = SubResource("RectangleShape2D_17f7y")
 position = Vector2(0, -25078)
 
 [node name="BaseLevel" parent="." node_paths=PackedStringArray("onCameraMakeVisibleAndFollow", "endingNotifier") instance=ExtResource("2_ewhb7")]
+position = Vector2(0, -15605)
 cameraSpeed = 300.0
 onCameraMakeVisibleAndFollow = [NodePath("../FollowPattern1")]
 endingNotifier = NodePath("../EndMarker")

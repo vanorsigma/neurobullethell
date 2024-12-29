@@ -32,6 +32,15 @@ func _ready() -> void:
 		notifier.screen_entered.connect(self._on_visible.bind(node))
 		expiryTimer.timeout.connect(self._on_expiry.bind(node))
 
+	Globals.level_complete.connect(self._on_level_complete)
+	Globals.game_over.connect(self._on_game_over)
+
+func _on_level_complete() -> void:
+	$WorldCamera/LevelClear.visible = true
+
+func _on_game_over() -> void:
+	$WorldCamera/GameOver.visible = true
+
 func _on_visible(node: Node) -> void:
 	for child in node.get_children():
 		if child is Node2D:

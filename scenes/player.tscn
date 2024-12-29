@@ -271,7 +271,8 @@ animations = [{
 position = Vector2(3, 0)
 motion_mode = 1
 script = ExtResource("1_a5bhw")
-health = 400.0
+health = 1.0
+shield = 0.0
 has_crown = false
 
 [node name="PlayerBaseCollision" type="CollisionShape2D" parent="."]

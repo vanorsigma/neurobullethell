@@ -26,6 +26,7 @@ corner_radius_bottom_left = 7
 [node name="Hud" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 2
 script = ExtResource("1_wvxrf")
 
 [node name="HP" type="Label" parent="."]

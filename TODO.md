@@ -1,1 +1,2 @@
 - [ ] Make tooltip slightly better
+- [ ] Fix game over / next level animations
