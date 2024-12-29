@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bvd7e5klrnr21"]
+[gd_scene load_steps=41 format=3 uid="uid://bvd7e5klrnr21"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_a5bhw"]
 [ext_resource type="Texture2D" uid="uid://wt3htrdohs1y" path="res://assets/neuro/sprite_6.png" id="2_1dbkx"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://mpq2s8md0pdr" path="res://assets/armor/armor_1.png" id="15_pl12f"]
 [ext_resource type="Texture2D" uid="uid://7g75w1pqcjdl" path="res://assets/armor/armor_2.png" id="16_4ai7h"]
 [ext_resource type="Texture2D" uid="uid://dtkakx0cjufmy" path="res://assets/crowned.png" id="18_bc3qc"]
+[ext_resource type="AudioStream" uid="uid://bnmqtmqhcq5ay" path="res://assets/lowDown.ogg" id="20_lqcjq"]
 [ext_resource type="Texture2D" uid="uid://dkfpr5n48yxan" path="res://assets/explosion.png" id="20_tgcjj"]
 [ext_resource type="AudioStream" uid="uid://bfewh50m3oqfq" path="res://assets/explosion.ogg" id="21_qohlb"]
 
@@ -270,6 +271,7 @@ animations = [{
 position = Vector2(3, 0)
 motion_mode = 1
 script = ExtResource("1_a5bhw")
+has_crown = false
 
 [node name="PlayerBaseCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 0.5)
@@ -315,6 +317,10 @@ sprite_frames = SubResource("SpriteFrames_3uiyr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shield"]
 position = Vector2(-1.25238, 0)
 shape = SubResource("CapsuleShape2D_cih3r")
+
+[node name="ShieldDown" type="AudioStreamPlayer" parent="Shield"]
+stream = ExtResource("20_lqcjq")
+volume_db = 12.839
 
 [node name="Explosion" type="AnimatedSprite2D" parent="."]
 visible = false

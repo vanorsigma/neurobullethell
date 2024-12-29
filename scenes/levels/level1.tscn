@@ -1376,8 +1376,8 @@ skip_in_list = true
 
 [sub_resource type="PackedDataContainer" id="PackedDataContainer_0rbr4"]
 script = ExtResource("6_d2iqa")
-damage = 100.0
-speed = 400.0
+damage = 5.0
+speed = 700.0
 scale = 1.0
 angle = 0.0
 groups = PackedStringArray()
@@ -1472,8 +1472,8 @@ r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
 [sub_resource type="PackedDataContainer" id="PackedDataContainer_2ntuf"]
 script = ExtResource("6_d2iqa")
-damage = 1.0
-speed = 400.0
+damage = 10.0
+speed = 700.0
 scale = 1.0
 angle = 0.0
 groups = PackedStringArray()
@@ -1568,8 +1568,8 @@ r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
 [sub_resource type="PackedDataContainer" id="PackedDataContainer_57pd1"]
 script = ExtResource("6_d2iqa")
-damage = 5.0
-speed = 100.0
+damage = 20.0
+speed = 350.0
 scale = 3.0
 angle = 0.0
 groups = PackedStringArray()
@@ -2259,7 +2259,7 @@ one_shot = true
 visible = false
 position = Vector2(-19, 54)
 script = ExtResource("7_uq1ha")
-auto_pattern_id = "PewPewPewFast"
+auto_pattern_id = "SqueezeThrough"
 pool_amount = 500
 r_active_chances = 1.0
 r_rotating_variation = Vector3(0, 0, 0)
@@ -2273,7 +2273,7 @@ r_start_distance_variation = Vector3(0, 0, 0)
 visible = false
 position = Vector2(635, 335)
 script = ExtResource("7_uq1ha")
-auto_pattern_id = "PewPewPewFast"
+auto_pattern_id = "SqueezeThroughRight"
 pool_amount = 500
 r_active_chances = 1.0
 r_rotating_variation = Vector3(0, 0, 0)
@@ -2533,12 +2533,13 @@ texture = ExtResource("12_4ssn8")
 position = Vector2(408, 0)
 shape = SubResource("RectangleShape2D_17f7y")
 
-[node name="endmarkerprobably" type="Node2D" parent="."]
-position = Vector2(0, -19499)
+[node name="EndMarker" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -25078)
 
-[node name="BaseLevel" parent="." node_paths=PackedStringArray("onCameraMakeVisibleAndFollow") instance=ExtResource("2_ewhb7")]
-position = Vector2(0, -7430)
+[node name="BaseLevel" parent="." node_paths=PackedStringArray("onCameraMakeVisibleAndFollow", "endingNotifier") instance=ExtResource("2_ewhb7")]
+cameraSpeed = 300.0
 onCameraMakeVisibleAndFollow = [NodePath("../FollowPattern1")]
+endingNotifier = NodePath("../EndMarker")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_e46mv")

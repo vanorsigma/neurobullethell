@@ -4,7 +4,7 @@ class_name Player
 enum Direction { UP, LEFT, RIGHT, IDLE }
 
 @export var base_speed: float = 100
-@export var boots_modifier: float = 5
+@export var boots_modifier: int = 3
 @export var health: float = 500
 @export var shield: float = 500
 
@@ -35,10 +35,12 @@ func _on_bullet_hit_dispatcher(body: Node, damage: int) -> void:
 func do_damage(damage: int, bypass_crown: bool = false) -> void:
 	var potential_hp_damage = max(0, damage - shield)
 
-	if has_shield:
+	if has_shield and shield > 0:
 		if has_crown and not bypass_crown:
 			return
-		shield = max(0, shield - damage)
+		shield = shield - damage
+		if shield <= 0:
+			$Shield/ShieldDown.play()
 
 	health -= potential_hp_damage
 	if health <= 0:
