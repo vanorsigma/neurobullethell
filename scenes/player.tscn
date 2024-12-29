@@ -1,8 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvd7e5klrnr21"]
+[gd_scene load_steps=24 format=3 uid="uid://bvd7e5klrnr21"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_a5bhw"]
-[ext_resource type="Texture2D" uid="uid://b0dxt4r2iejpf" path="res://assets/box.png" id="2_1o0ui"]
+[ext_resource type="Texture2D" uid="uid://wt3htrdohs1y" path="res://assets/neuro/sprite_6.png" id="2_1dbkx"]
+[ext_resource type="Texture2D" uid="uid://jv7ku03iw8m0" path="res://assets/neuro/sprite_0.png" id="2_fopcj"]
 [ext_resource type="Texture2D" uid="uid://be032e8syyocp" path="res://assets/shield.png" id="3_wcq6f"]
+[ext_resource type="Texture2D" uid="uid://85shjxo2gxo8" path="res://assets/neuro/sprite_7.png" id="4_vndap"]
+[ext_resource type="Texture2D" uid="uid://c5rljm3vdt7ep" path="res://assets/neuro/sprite_8.png" id="5_dqfwm"]
+[ext_resource type="Texture2D" uid="uid://cggvuj7wbemi4" path="res://assets/neuro/sprite_1.png" id="6_45gqb"]
+[ext_resource type="Texture2D" uid="uid://fri5srbg1dvb" path="res://assets/neuro/sprite_2.png" id="7_yjaok"]
+[ext_resource type="Texture2D" uid="uid://m4uuk3dpgytc" path="res://assets/flightboots/flightboots6.png" id="8_qafqd"]
+[ext_resource type="Texture2D" uid="uid://crxcadoie6x15" path="res://assets/flightboots/flightboots0.png" id="9_gody3"]
+[ext_resource type="Texture2D" uid="uid://bvasaultt7w" path="res://assets/crown/crown2.png" id="10_wd15r"]
+[ext_resource type="Texture2D" uid="uid://c2v2ypf0fr6qx" path="res://assets/crown/crown1.png" id="11_adcq8"]
+[ext_resource type="Texture2D" uid="uid://bkmyl02m3unvw" path="res://assets/armor/armor_0.png" id="12_assh2"]
+[ext_resource type="Texture2D" uid="uid://ckytyaq88p3re" path="res://assets/armor/armor_4.png" id="13_pgdvk"]
+[ext_resource type="Texture2D" uid="uid://bsrqny44joc2l" path="res://assets/armor/armor_5.png" id="14_t8268"]
+[ext_resource type="Texture2D" uid="uid://mpq2s8md0pdr" path="res://assets/armor/armor_1.png" id="15_pl12f"]
+[ext_resource type="Texture2D" uid="uid://7g75w1pqcjdl" path="res://assets/armor/armor_2.png" id="16_4ai7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8owsn"]
 size = Vector2(40, 39)
@@ -11,11 +25,132 @@ size = Vector2(40, 39)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_1o0ui")
+"texture": ExtResource("2_1dbkx")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle_left",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fopcj")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vndap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dqfwm")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fopcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_45gqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fopcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yjaok")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_touh2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_qafqd")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_gody3")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f20kx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_wd15r")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_adcq8")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kdpe0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_assh2")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_pgdvk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_t8268")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_assh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_pl12f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_assh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4ai7h")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_23a4i"]
@@ -32,8 +167,24 @@ shape = SubResource("RectangleShape2D_8owsn")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-3.5, -0.5)
-scale = Vector2(0.205, 0.205)
+scale = Vector2(1.00726, 1)
 sprite_frames = SubResource("SpriteFrames_0so8i")
+animation = &"idle_up"
+
+[node name="FlightBoots" type="AnimatedSprite2D" parent="PlayerSprite"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_touh2")
+animation = &"up"
+
+[node name="Crown" type="AnimatedSprite2D" parent="PlayerSprite"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_f20kx")
+animation = &"up"
+
+[node name="Armor" type="AnimatedSprite2D" parent="PlayerSprite"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_kdpe0")
+animation = &"idle_up"
 
 [node name="DebugLabel" type="Label" parent="."]
 offset_left = -13.0
@@ -44,6 +195,8 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "eef"
 
 [node name="Shield" type="Area2D" parent="."]
+position = Vector2(4, -3)
+scale = Vector2(2.39543, 2.39543)
 
 [node name="ShieldSprite" type="Sprite2D" parent="Shield"]
 position = Vector2(-4, -0.500001)
