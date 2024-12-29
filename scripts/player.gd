@@ -50,21 +50,21 @@ func _play_animation(direction: Direction) -> void:
 			crown.play("up")
 		Direction.LEFT:
 			$PlayerSprite.play("idle_left" if has_boots else "walk_left")
-			$PlayerSprite.flip_h = false
+			$PlayerSprite.flip_h = has_boots
 			flightBoots.play("left")
-			flightBoots.flip_h = false
-			armor.play("idle_up" if has_boots else "walk_up")
-			armor.flip_h = false
+			flightBoots.flip_h = has_boots
+			armor.play("idle_right")
+			armor.flip_h = has_boots
 			crown.play("left")
 		Direction.RIGHT:
 			$PlayerSprite.play("idle_left" if has_boots else "walk_left")
-			$PlayerSprite.flip_h = true
+			$PlayerSprite.flip_h = not has_boots
 			flightBoots.play("left")
-			flightBoots.flip_h = true
-			armor.play("idle_up" if has_boots else "walk_up")
-			armor.flip_h = true
+			flightBoots.flip_h = not has_boots
+			armor.play("idle_right" if has_boots else "walk_left")
+			armor.flip_h = not has_boots
 			crown.play("right")
-		Direction.IDLE:
+		Direction.IDLE when not has_boots:
 			match previous_direction:
 				Direction.UP:
 					$PlayerSprite.play("idle_up")
@@ -76,7 +76,7 @@ func _play_animation(direction: Direction) -> void:
 					$PlayerSprite.flip_h = false
 					flightBoots.play("left")
 					flightBoots.flip_h = false
-					armor.play("idle_up")
+					armor.play("idle_left")
 					armor.flip_h = false
 					crown.play("left")
 				Direction.RIGHT:
@@ -84,9 +84,14 @@ func _play_animation(direction: Direction) -> void:
 					$PlayerSprite.flip_h = true
 					flightBoots.play("left")
 					flightBoots.flip_h = true
-					armor.play("idle_up")
+					armor.play("idle_left")
 					armor.flip_h = true
 					crown.play("right")
+		Direction.IDLE when has_boots:
+			$PlayerSprite.play("idle_up")
+			flightBoots.play("up")
+			armor.play("idle_up")
+			crown.play("up")
 
 	previous_direction = direction
 

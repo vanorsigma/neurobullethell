@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bvd7e5klrnr21"]
+[gd_scene load_steps=25 format=3 uid="uid://bvd7e5klrnr21"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_a5bhw"]
 [ext_resource type="Texture2D" uid="uid://wt3htrdohs1y" path="res://assets/neuro/sprite_6.png" id="2_1dbkx"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bvasaultt7w" path="res://assets/crown/crown2.png" id="10_wd15r"]
 [ext_resource type="Texture2D" uid="uid://c2v2ypf0fr6qx" path="res://assets/crown/crown1.png" id="11_adcq8"]
 [ext_resource type="Texture2D" uid="uid://bkmyl02m3unvw" path="res://assets/armor/armor_0.png" id="12_assh2"]
+[ext_resource type="Texture2D" uid="uid://42l6moqc4kti" path="res://assets/armor/armor_6.png" id="12_s176e"]
 [ext_resource type="Texture2D" uid="uid://ckytyaq88p3re" path="res://assets/armor/armor_4.png" id="13_pgdvk"]
 [ext_resource type="Texture2D" uid="uid://bsrqny44joc2l" path="res://assets/armor/armor_5.png" id="14_t8268"]
 [ext_resource type="Texture2D" uid="uid://mpq2s8md0pdr" path="res://assets/armor/armor_1.png" id="15_pl12f"]
@@ -118,6 +119,14 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("12_s176e")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("12_assh2")
 }],
 "loop": true,
@@ -184,9 +193,10 @@ animation = &"up"
 [node name="Armor" type="AnimatedSprite2D" parent="PlayerSprite"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_kdpe0")
-animation = &"idle_up"
+animation = &"idle_left"
 
 [node name="DebugLabel" type="Label" parent="."]
+visible = false
 offset_left = -13.0
 offset_top = -9.0
 offset_right = 27.0
