@@ -21,7 +21,6 @@ script = ExtResource("1_bhbvf")
 [node name="Player" parent="." instance=ExtResource("2_j5l8e")]
 position = Vector2(389, 336)
 collision_mask = 3
-has_boots = true
 
 [node name="WorldCamera" type="Camera2D" parent="."]
 position = Vector2(435, 301)
