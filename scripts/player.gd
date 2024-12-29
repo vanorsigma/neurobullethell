@@ -7,6 +7,7 @@ enum Direction { UP, LEFT, RIGHT, IDLE }
 @export var boots_modifier: int = 3
 @export var health: float = 500
 @export var shield: float = 500
+@export var blink_speed_modifier: float = 3
 
 @export var has_shield: bool = true
 @export var has_boots = true
@@ -17,6 +18,7 @@ enum Direction { UP, LEFT, RIGHT, IDLE }
 @onready var crown = $PlayerSprite/Crown
 @onready var armor = $PlayerSprite/Armor
 
+var invincible = false
 var previous_direction: Direction = Direction.IDLE
 
 func _ready() -> void:
@@ -33,6 +35,9 @@ func _on_bullet_hit_dispatcher(body: Node, damage: int) -> void:
 		do_damage(damage)
 
 func do_damage(damage: int, bypass_crown: bool = false) -> void:
+	if invincible:
+		return
+
 	var potential_hp_damage = max(0, damage - shield)
 
 	if has_shield and shield > 0:
@@ -43,8 +48,32 @@ func do_damage(damage: int, bypass_crown: bool = false) -> void:
 			$Shield/ShieldDown.play()
 
 	health -= potential_hp_damage
+	if potential_hp_damage:
+		_damage_blink()
 	if health <= 0:
 		_die()
+
+func _damage_blink() -> void:
+	invincible = true
+	var timer = Timer.new()
+	add_child(timer)
+	timer.set_wait_time(0.2)
+
+	$PlayerSprite.modulate = Color(1, 0, 0, 1)
+	timer.start()
+	await timer.timeout
+
+	$PlayerSprite.modulate = Color(1, 1, 1, 1)
+	timer.start()
+	await timer.timeout
+
+	$PlayerSprite.modulate = Color(1, 0, 0, 1)
+	timer.start()
+	await timer.timeout
+
+	$PlayerSprite.modulate = Color(1, 1, 1, 1)
+	invincible = false
+	timer.queue_free()
 
 func _die() -> void:
 	$Explosion.visible = true
@@ -111,6 +140,9 @@ func _play_animation(direction: Direction) -> void:
 func _process(delta: float) -> void:
 	$Shield.visible = shield > 0
 
+	if not $BlinkTimer.is_stopped():
+		return
+
 	velocity = Vector2(0, 0)
 	var animation_direction = Direction.IDLE
 
@@ -127,6 +159,13 @@ func _process(delta: float) -> void:
 		velocity.x = base_speed * (boots_modifier if has_boots else 1.0)
 		animation_direction = Direction.RIGHT
 
+	if Input.is_action_pressed("blink") and $BlinkCooldownTimer.is_stopped():
+		invincible = true
+		velocity.x *= blink_speed_modifier
+		velocity.y *= blink_speed_modifier
+		$BlinkTimer.start()
+		$BlinkCooldownTimer.start()
+
 	_play_animation(animation_direction)
 
 	# put global position of self in debuglabel
@@ -134,3 +173,6 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
+
+func _on_blink_timer_timeout() -> void:
+	invincible = false

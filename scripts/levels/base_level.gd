@@ -5,6 +5,8 @@ extends Node2D
 @export var endingNotifier: VisibleOnScreenNotifier2D
 
 @onready var hud = $WorldCamera/Hud
+@onready var dash = $WorldCamera/Hud/Dash
+@onready var blinkCooldownTimer = $Player/BlinkCooldownTimer
 
 var trackingArray = []
 var ended = false
@@ -16,6 +18,7 @@ func _ready() -> void:
 		endingNotifier.screen_entered.connect(self._on_ending_visible)
 
 	hud.max_hp = $Player.health
+	dash.max_value = blinkCooldownTimer.wait_time
 	hud.max_shield = $Player.shield
 
 	for node in onCameraMakeVisibleAndFollow:
@@ -56,6 +59,7 @@ func _process(delta: float) -> void:
 	hud.hp = $Player.health
 	hud.shield = $Player.shield
 	hud.has_crown = $Player.has_crown
+	dash.value = blinkCooldownTimer.wait_time - blinkCooldownTimer.time_left
 
 	for node in trackingArray:
 		node.position.y -= cameraSpeed * delta

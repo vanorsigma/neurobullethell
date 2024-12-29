@@ -271,6 +271,7 @@ animations = [{
 position = Vector2(3, 0)
 motion_mode = 1
 script = ExtResource("1_a5bhw")
+health = 400.0
 has_crown = false
 
 [node name="PlayerBaseCollision" type="CollisionShape2D" parent="."]
@@ -330,3 +331,13 @@ frame_progress = 0.831977
 
 [node name="Audio" type="AudioStreamPlayer" parent="Explosion"]
 stream = ExtResource("21_qohlb")
+
+[node name="BlinkTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="BlinkCooldownTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="BlinkTimer" to="." method="_on_blink_timer_timeout"]

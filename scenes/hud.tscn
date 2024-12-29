@@ -113,3 +113,28 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Sword
 "
+
+[node name="Dash" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 557.0
+offset_top = 26.0
+offset_right = 648.0
+offset_bottom = 112.0
+value = 10.0
+fill_mode = 3
+
+[node name="DashLabel" type="Label" parent="Dash"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.5
+offset_top = 4.0
+offset_right = 24.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.00904, 1)
+text = "Dash"
