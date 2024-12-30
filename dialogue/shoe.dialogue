@@ -1,6 +1,6 @@
 ~ boots
-#if story < 2 or story >= 3 or not is_story_death
-#	=> END
+if story < 2 or story >= 3 or not is_story_death
+	=> END
 
 Monarch: Some of these bullets now respond to my speed?
 
