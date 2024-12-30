@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://c26wymcm5fkdm"]
+
+[ext_resource type="Script" path="res://scripts/pause_screen.gd" id="1_0258q"]
+[ext_resource type="Theme" uid="uid://hsneaacuslws" path="res://default.tres" id="1_pdna7"]
+
+[node name="PauseScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0258q")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 26.0
+offset_right = 62.0
+offset_bottom = 66.0
+scale = Vector2(18.6903, 13.3726)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 181.0
+offset_right = 482.0
+offset_bottom = 248.0
+theme = ExtResource("1_pdna7")
+text = "Paused"
+
+[node name="Self-destruct" type="Button" parent="."]
+layout_mode = 0
+offset_left = 398.0
+offset_top = 274.0
+offset_right = 553.0
+offset_bottom = 316.0
+theme = ExtResource("1_pdna7")
+theme_override_font_sizes/font_size = 24
+text = "Self-destruct"
+
+[node name="Continue" type="Button" parent="."]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 274.0
+offset_right = 365.0
+offset_bottom = 316.0
+theme = ExtResource("1_pdna7")
+theme_override_font_sizes/font_size = 24
+text = "Continue"
+
+[connection signal="pressed" from="Self-destruct" to="." method="_on_selfdestruct_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]

@@ -24,11 +24,11 @@ var previous_direction: Direction = Direction.IDLE
 func _ready() -> void:
 	Globals.player = self
 	Globals.bullet_hit.connect(_on_bullet_hit_dispatcher)
+	Globals.self_destruct.connect(do_damage.bind(999999999, true))
 
 	flightBoots.visible = has_boots
 	crown.visible = has_crown
 	armor.visible = has_armor
-
 
 func _on_bullet_hit_dispatcher(body: Node, damage: int) -> void:
 	if body == self or body == $Shield:

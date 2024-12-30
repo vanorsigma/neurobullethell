@@ -6,6 +6,7 @@ extends Node2D
 
 @onready var hud = $WorldCamera/Hud
 @onready var dash = $WorldCamera/Hud/Dash
+@onready var pauseScreen = $WorldCamera/PauseScreen
 @onready var blinkCooldownTimer = $Player/BlinkCooldownTimer
 
 var trackingArray = []

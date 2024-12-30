@@ -14,6 +14,7 @@ func prepare_level(level: PackedScene) -> void:
 	get_tree().paused = false
 	instantiated_level = levels[levels_index].instantiate()
 	add_child(instantiated_level)
+	Globals.level_begin.emit()
 
 func _ready() -> void:
 	Globals.restart_request.connect(self._on_level_restart)
