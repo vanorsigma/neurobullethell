@@ -20,6 +20,7 @@ func prepare_level(level: PackedScene) -> void:
 
 func _ready() -> void:
 	Globals.restart_request.connect(self._on_level_restart)
+	Globals.next_level_request.connect(self._next_level_request)
 	Globals.game_over.connect(self._on_game_over)
 	prepare_level(levels[levels_index])
 
@@ -28,6 +29,12 @@ func _on_game_over() -> void:
 
 func _on_level_restart() -> void:
 	instantiated_level.queue_free()
+	prepare_level(levels[levels_index])
+
+func _next_level_request() -> void:
+	levels_index += 1
+	if levels_index >= levels.size():
+		levels_index = 0
 	prepare_level(levels[levels_index])
 
 func _process(delta: float) -> void:

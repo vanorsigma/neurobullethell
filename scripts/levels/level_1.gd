@@ -1,5 +1,7 @@
 extends Node2D
 
+var post_level_dialogue = preload("res://dialogue/post_level_1.dialogue")
+
 func _ready() -> void:
 	# var scroll_speed = 5.0 if Globals.player.has_boots else 1.0
 	# $ParallaxBackground.scroll_base_scale = Vector2(scroll_speed, scroll_speed)
@@ -19,3 +21,7 @@ func _on_area_2d_body_entered(node: Node2D) -> void:
 func _level_complete() -> void:
 	var stream = $AudioStreamPlayer.stream as AudioStreamWAV
 	($AudioStreamPlayer.stream as AudioStreamWAV).loop_mode = AudioStreamWAV.LOOP_DISABLED
+
+	var dialog_node = DialogueManager.show_dialogue_balloon(post_level_dialogue)
+	dialog_node.process_mode = ProcessMode.PROCESS_MODE_ALWAYS
+	await DialogueManager.dialogue_ended
