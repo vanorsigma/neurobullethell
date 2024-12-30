@@ -3123,6 +3123,7 @@ tile_set = SubResource("TileSet_x8hb6")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_7obei")
+autoplay = true
 
 [node name="Tree" type="Sprite2D" parent="."]
 position = Vector2(387, 136)

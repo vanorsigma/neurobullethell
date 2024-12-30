@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdb8q5g58k56x"]
+
+[ext_resource type="Theme" uid="uid://hsneaacuslws" path="res://default.tres" id="1_6sehh"]
+[ext_resource type="Script" path="res://scripts/start.gd" id="2_bkl82"]
+[ext_resource type="AudioStream" uid="uid://b4qyj0vv0285d" path="res://assets/finalsong.wav" id="3_i7mdm"]
+
+[node name="Pregame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 212.0
+offset_right = 541.0
+offset_bottom = 279.0
+theme = ExtResource("1_6sehh")
+text = "anniversary"
+
+[node name="start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 293.0
+offset_right = 473.0
+offset_bottom = 357.0
+text = "start game"
+script = ExtResource("2_bkl82")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_i7mdm")
+autoplay = true
+
+[connection signal="pressed" from="start" to="start" method="_on_pressed"]

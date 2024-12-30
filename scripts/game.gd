@@ -1,12 +1,14 @@
 extends Node2D
 
+var pregame = preload("res://scenes/pregame.tscn")
+var lore = preload("res://scenes/lore.tscn")
 var level1 = preload("res://scenes/levels/level1.tscn")
 var level2 = preload("res://scenes/levels/level2.tscn")
 var level3 = preload("res://scenes/levels/level3.tscn")
 var level4 = preload("res://scenes/levels/level4.tscn")
 var final = preload("res://scenes/levels/final.tscn")
 
-var levels = [level1, level2, level3, level4, final]
+var levels = [pregame, lore, level1, level2, level3, level4, final]
 
 var levels_index = 0
 var instantiated_level = null

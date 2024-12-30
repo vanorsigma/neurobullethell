@@ -271,6 +271,7 @@ animations = [{
 position = Vector2(3, 0)
 motion_mode = 1
 script = ExtResource("1_a5bhw")
+health = 700.0
 
 [node name="PlayerBaseCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 0.5)
@@ -280,7 +281,7 @@ shape = SubResource("RectangleShape2D_8owsn")
 position = Vector2(-3.5, -0.5)
 scale = Vector2(1.00726, 1)
 sprite_frames = SubResource("SpriteFrames_0so8i")
-animation = &"idle_up"
+animation = &"walk_up"
 
 [node name="FlightBoots" type="AnimatedSprite2D" parent="PlayerSprite"]
 visible = false
@@ -298,6 +299,7 @@ sprite_frames = SubResource("SpriteFrames_kdpe0")
 animation = &"idle_left"
 
 [node name="DebugLabel" type="Label" parent="."]
+visible = false
 offset_left = -13.0
 offset_top = -9.0
 offset_right = 27.0

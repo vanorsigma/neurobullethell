@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 
 func _on_anticrown_entered(body:Node2D) -> void:
 	if body == Globals.player and Globals.player.has_crown:
-				Globals.player.do_damage(999999999, true)
+		Globals.player.do_damage(999999999, true)
 
 func _level_complete() -> void:
 	var stream = $AudioStreamPlayer.stream as AudioStreamWAV

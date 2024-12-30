@@ -15,7 +15,7 @@ func laser_collide(col_pos:Vector2, collider:Node, normal:Vector2, full_length:f
 	pass
 
 func bullet_collide_body(body_rid:RID,body:Node,body_shape_index:int,local_shape_index:int,shared_area:Area2D, B:Dictionary) -> void:
-	if "lightspeed" in B["props"]:
+	if "lightspeed" in B["props"] or "shield" in B["props"]:
 		Globals.is_story_death = true
 
 	Globals.bullet_hit.emit(body, B["props"]["damage"], true if "armor_bullet" in B["props"] else false)
@@ -29,7 +29,7 @@ func bullet_collide_body(body_rid:RID,body:Node,body_shape_index:int,local_shape
 func bullet_collide_area(area_rid:RID,area:Area2D,area_shape_index:int,local_shape_index:int,shared_area:Area2D) -> void:
 	var B = shared_area.get_meta("Bullets")[local_shape_index]
 
-	if "lightspeed" in B["props"]:
+	if "lightspeed" in B["props"] or "shield" in B["props"]:
 		Globals.is_story_death = true
 
 	Globals.bullet_hit.emit(area, B["props"]["damage"], true if "armor_bullet" in B["props"] else false)

@@ -138,4 +138,4 @@ offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.00904, 1)
-text = "Dash"
+text = "Dash (Shift)"

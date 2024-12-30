@@ -235,7 +235,9 @@ speed = 700.0
 scale = 1.0
 angle = 0.0
 groups = PackedStringArray()
-custom_data = {}
+custom_data = {
+"shield": true
+}
 death_after_time = 30.0
 death_outside_box = Rect2(0, 0, 0, 0)
 death_from_collision = true

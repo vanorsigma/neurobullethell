@@ -8,11 +8,11 @@ const shield = preload("res://dialogue/shield.dialogue")
 enum GameState { PLAY, PAUSE, GAME_OVER, LEVEL_COMPLETE, CUSTOMIZATION }
 
 var player: Player
-# var selected_items: int = 0b111111
-var selected_items: int = 0b000111
+var selected_items: int = 0b111111
+# var selected_items: int = 0b000111
 var state = GameState.PLAY
-# var story = 0
-var story = 2
+var story = 0
+# var story = 2
 var is_story_death = false
 
 var possible_death_dialogues = [crown_dialogue, cfrb, shoe, shield]

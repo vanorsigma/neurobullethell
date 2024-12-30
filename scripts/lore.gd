@@ -1,7 +1,7 @@
-extends Node2D
+extends Control
 
-var dialogue = preload("res://dialogue/final.dialogue")
-var endRoll = preload("res://scenes/end_roll.tscn")
+var dialogue = preload("res://dialogue/start.dialogue")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,9 +9,8 @@ func _ready() -> void:
 	dialog_node.process_mode = ProcessMode.PROCESS_MODE_ALWAYS
 	await DialogueManager.dialogue_ended
 
-	var parent = get_parent()
-	queue_free()
-	parent.add_child(endRoll.instantiate())
+	Globals.next_level_request.emit()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
