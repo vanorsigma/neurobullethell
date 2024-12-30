@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://oktydkv5e0dn"
+path="res://.godot/imported/post_level_4.dialogue-a9e6a9baa8bd939a67363c7ecb0d9e95.tres"
+
+[deps]
+
+source_file="res://dialogue/post_level_4.dialogue"
+dest_files=["res://.godot/imported/post_level_4.dialogue-a9e6a9baa8bd939a67363c7ecb0d9e95.tres"]
+
+[params]
+
+defaults=true

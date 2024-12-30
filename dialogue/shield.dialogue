@@ -1,0 +1,14 @@
+~ boots
+if story < 3 or story >= 4 or not is_story_death
+	=> END
+
+Monarch: Looks like the [color=aqua]shield[/color] is attracting too much attention.
+
+You remember when you first crafted it. It was in a Minecraft session where nobody had high expectations for; yet, you pulled through.
+
+Monarch: They're getting awfully creative with these bullets.
+
+[i]Yopu can now unequip your [color=aqua]shield[/color][/i].
+
+set story = 4
+=> END

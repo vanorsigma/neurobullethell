@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://b5r1unu75mme7"
+path="res://.godot/imported/shield.dialogue-fff9bb4cc120aba4b3ac49c1129d4113.tres"
+
+[deps]
+
+source_file="res://dialogue/shield.dialogue"
+dest_files=["res://.godot/imported/shield.dialogue-fff9bb4cc120aba4b3ac49c1129d4113.tres"]
+
+[params]
+
+defaults=true

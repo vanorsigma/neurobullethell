@@ -92,9 +92,9 @@ text = "👑 Crowned 👑"
 [node name="Block" type="ProgressBar" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 666.0
+offset_left = 554.0
 offset_top = 26.0
-offset_right = 757.0
+offset_right = 645.0
 offset_bottom = 112.0
 value = 10.0
 fill_mode = 3
@@ -117,10 +117,10 @@ text = "Sword
 
 [node name="Dash" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 557.0
-offset_top = 26.0
-offset_right = 648.0
-offset_bottom = 112.0
+offset_left = 665.0
+offset_top = 25.0
+offset_right = 756.0
+offset_bottom = 111.0
 value = 10.0
 fill_mode = 3
 

@@ -26,6 +26,9 @@ func _ready() -> void:
 	Globals.bullet_hit.connect(_on_bullet_hit_dispatcher)
 	Globals.self_destruct.connect(do_damage.bind(999999999, true))
 
+	if not has_shield:
+		shield = 0
+
 func _on_bullet_hit_dispatcher(body: Node, damage: int, armor_bullet: bool) -> void:
 	if body == self or body == $Shield and not invincible:
 		do_damage(damage)

@@ -24,7 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://bfewh50m3oqfq" path="res://assets/explosion.ogg" id="21_qohlb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8owsn"]
-size = Vector2(40, 39)
+size = Vector2(32, 37)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0so8i"]
 animations = [{
@@ -186,8 +186,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cih3r"]
-radius = 9.60162
-height = 33.3969
+radius = 7.09684
+height = 25.0477
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2v4w1"]
 atlas = ExtResource("20_tgcjj")
@@ -335,7 +335,6 @@ wait_time = 0.2
 one_shot = true
 
 [node name="BlinkCooldownTimer" type="Timer" parent="."]
-wait_time = 3.0
 one_shot = true
 
 [connection signal="timeout" from="BlinkTimer" to="." method="_on_blink_timer_timeout"]
