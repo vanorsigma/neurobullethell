@@ -35,6 +35,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 script = ExtResource("1_76tbf")
+disabled = true
 
 [node name="RemnantSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.78, 0.78)
@@ -87,6 +88,14 @@ theme = ExtResource("1_k7mko")
 theme_override_font_sizes/font_size = 16
 text = "Does something and things"
 autowrap_mode = 2
+
+[node name="DisabledRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -79.0
+offset_top = -80.0
+offset_right = 78.0
+offset_bottom = 79.0
+color = Color(0.61339, 0.61339, 0.61339, 1)
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

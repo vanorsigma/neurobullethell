@@ -6,6 +6,7 @@ signal on_selected(is_selected: bool)
 @export_multiline var description: String = "Description"
 @export var icon: Texture
 @export var selected: bool = true
+@export var disabled: bool = false
 
 @onready var Title = get_node("Panel/VBoxContainer/Title")
 @onready var Description = get_node("Panel/VBoxContainer/Description")
@@ -17,6 +18,7 @@ func _ready() -> void:
 	Description.text = description
 
 func _process(delta: float) -> void:
+	$DisabledRect.visible = disabled
 	$Checkmark.visible = selected
 	$SelectedSprite.visible = selected
 	if $Panel.visible:
@@ -25,13 +27,14 @@ func _process(delta: float) -> void:
 			$Panel.global_position.x = get_viewport().size.x - $Panel.get_rect().size.x
 
 func _on_area_2d_mouse_entered() -> void:
-	$Panel.show()
+	if not disabled:
+		$Panel.show()
 
 func _on_area_2d_mouse_exited() -> void:
 	$Panel.hide()
 
 func _on_area_2d_input_event(viewport:Node, event:InputEvent, shape_idx:int) -> void:
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and not disabled:
 		if (event as InputEventMouseButton).pressed:
 			selected = !selected
 			on_selected.emit(selected)

@@ -129,6 +129,7 @@ Makes you practically invincible.
 
 Taking this off mortalizes you."
 icon = ExtResource("3_u0f2d")
+disabled = false
 
 [node name="Close" type="Button" parent="."]
 layout_mode = 0

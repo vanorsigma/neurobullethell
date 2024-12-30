@@ -5,6 +5,7 @@ enum GameState { PLAY, PAUSE, GAME_OVER, LEVEL_COMPLETE, CUSTOMIZATION }
 var player: Player
 var selected_items: int = 0b111111
 var state = GameState.PLAY
+var story = 0
 
 signal bullet_hit(body: Node, damage: int)
 signal self_destruct()
