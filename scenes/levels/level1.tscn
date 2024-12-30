@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://barar31oa6hjl"]
+[gd_scene load_steps=53 format=4 uid="uid://barar31oa6hjl"]
 
 [ext_resource type="Texture2D" uid="uid://bmlccldrc12ri" path="res://assets/parallex.png" id="1_2kxtn"]
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_x0y1b"]
@@ -14,6 +14,10 @@
 [ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHSpawnPoint.gd" id="7_uq1ha"]
 [ext_resource type="AudioStream" uid="uid://dhjx8bjwkl32u" path="res://assets/level1.wav" id="11_e46mv"]
 [ext_resource type="Texture2D" uid="uid://f8irq202fdgn" path="res://addons/BulletUpHell/Bullet/Sprites/Bullet_3.png" id="12_4ssn8"]
+[ext_resource type="Texture2D" uid="uid://bqc8lr7f05apo" path="res://assets/topDownShooter.png" id="12_bk7ed"]
+[ext_resource type="Script" path="res://scripts/behavior/track.gd" id="13_jx1vy"]
+[ext_resource type="Texture2D" uid="uid://btrre6viy53mp" path="res://assets/diamond.png" id="14_xoy4n"]
+[ext_resource type="Script" path="res://scripts/behavior/rotate.gd" id="15_2027o"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_btd1s"]
 tile_data = PackedInt32Array(0, 2031616, 10, 65536, 2031616, 11)
@@ -1658,6 +1662,47 @@ r_scale_multi_curve_choice = []
 r_scale_multi_iter_variation = Vector3(0, 0, 0)
 r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ostc"]
+atlas = ExtResource("12_bk7ed")
+region = Rect2(561, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gj7wu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ostc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ohol1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_xoy4n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ooyf"]
+atlas = ExtResource("2_3sce8")
+region = Rect2(500, 416, 25, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhr22"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ooyf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17f7y"]
 size = Vector2(836, 20)
 
@@ -1772,6 +1817,13 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
+[node name="TrackerSprite" type="AnimatedSprite2D" parent="Pattern1"]
+position = Vector2(44, -218)
+scale = Vector2(4.92, 4.92)
+sprite_frames = SubResource("SpriteFrames_gj7wu")
+script = ExtResource("13_jx1vy")
+target_node = NodePath("../../BaseLevel/Player")
+
 [node name="SP2" type="Node2D" parent="Pattern1"]
 position = Vector2(742, -221)
 script = ExtResource("7_uq1ha")
@@ -1784,6 +1836,13 @@ r_start_time_choice = ""
 r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="TrackerSprite2" type="AnimatedSprite2D" parent="Pattern1"]
+position = Vector2(742, -218)
+scale = Vector2(4.92, 4.92)
+sprite_frames = SubResource("SpriteFrames_gj7wu")
+script = ExtResource("13_jx1vy")
+target_node = NodePath("../../BaseLevel/Player")
 
 [node name="SP3" type="Node2D" parent="Pattern1"]
 position = Vector2(400, -1110)
@@ -1799,6 +1858,13 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
+[node name="TrackerSprite3" type="AnimatedSprite2D" parent="Pattern1"]
+position = Vector2(402, -1110)
+scale = Vector2(4.92, 4.92)
+sprite_frames = SubResource("SpriteFrames_gj7wu")
+script = ExtResource("13_jx1vy")
+target_node = NodePath("../../BaseLevel/Player")
+
 [node name="SP4" type="Node2D" parent="Pattern1"]
 position = Vector2(66, -1941)
 script = ExtResource("7_uq1ha")
@@ -1811,6 +1877,11 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
+[node name="SpinnerSprite" type="AnimatedSprite2D" parent="Pattern1"]
+position = Vector2(67, -1941)
+scale = Vector2(1.84375, 1.84375)
+sprite_frames = SubResource("SpriteFrames_ohol1")
+
 [node name="SP5" type="Node2D" parent="Pattern1"]
 position = Vector2(748, -1930)
 script = ExtResource("7_uq1ha")
@@ -1822,6 +1893,11 @@ r_start_time_choice = ""
 r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SpinnerSprite2" type="AnimatedSprite2D" parent="Pattern1"]
+position = Vector2(757, -1930)
+scale = Vector2(1.84375, 1.84375)
+sprite_frames = SubResource("SpriteFrames_ohol1")
 
 [node name="SP6" type="Node2D" parent="Pattern1"]
 position = Vector2(276, -2584)
@@ -1836,6 +1912,13 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
+[node name="TrackerSprite4" type="AnimatedSprite2D" parent="Pattern1"]
+position = Vector2(276, -2584)
+scale = Vector2(4.92, 4.92)
+sprite_frames = SubResource("SpriteFrames_gj7wu")
+script = ExtResource("15_2027o")
+rotation_speed = 0.2
+
 [node name="SP7" type="Node2D" parent="Pattern1"]
 position = Vector2(526, -2588)
 script = ExtResource("7_uq1ha")
@@ -1848,6 +1931,13 @@ r_start_time_choice = ""
 r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="TrackerSprite5" type="AnimatedSprite2D" parent="Pattern1"]
+position = Vector2(538, -2584)
+scale = Vector2(4.92, 4.92)
+sprite_frames = SubResource("SpriteFrames_gj7wu")
+script = ExtResource("15_2027o")
+rotation_speed = 0.2
 
 [node name="SP8" type="Node2D" parent="Pattern1"]
 position = Vector2(687, -3738)
@@ -1862,6 +1952,13 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
+[node name="TrackerSprite6" type="AnimatedSprite2D" parent="Pattern1"]
+position = Vector2(694, -3738)
+scale = Vector2(4.92, 4.92)
+sprite_frames = SubResource("SpriteFrames_gj7wu")
+script = ExtResource("13_jx1vy")
+target_node = NodePath("../../BaseLevel/Player")
+
 [node name="SP9" type="Node2D" parent="Pattern1"]
 position = Vector2(104, -3745)
 script = ExtResource("7_uq1ha")
@@ -1873,6 +1970,11 @@ r_start_time_choice = ""
 r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SpinnerSprite3" type="AnimatedSprite2D" parent="Pattern1"]
+position = Vector2(109, -3745)
+scale = Vector2(1.84375, 1.84375)
+sprite_frames = SubResource("SpriteFrames_ohol1")
 
 [node name="SP10" type="Node2D" parent="Pattern1"]
 position = Vector2(523, -4257)
@@ -1959,6 +2061,13 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
+[node name="TrackerSprite7" type="AnimatedSprite2D" parent="Pattern1"]
+position = Vector2(96.9999, -6418)
+scale = Vector2(4.92, 4.92)
+sprite_frames = SubResource("SpriteFrames_gj7wu")
+script = ExtResource("15_2027o")
+rotation_speed = 1.0
+
 [node name="SP16" type="Node2D" parent="Pattern1"]
 position = Vector2(703, -6418)
 scale = Vector2(124.737, 1)
@@ -1973,6 +2082,13 @@ r_start_time_choice = ""
 r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="TrackerSprite8" type="AnimatedSprite2D" parent="Pattern1"]
+position = Vector2(703, -6418)
+scale = Vector2(4.92, 4.92)
+sprite_frames = SubResource("SpriteFrames_gj7wu")
+script = ExtResource("15_2027o")
+rotation_speed = 1.0
 
 [node name="SP17" type="Node2D" parent="Pattern1"]
 position = Vector2(37, -7595)
@@ -2002,7 +2118,7 @@ r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
 [node name="Pattern2" type="Node2D" parent="."]
-position = Vector2(-22, -8495)
+position = Vector2(-20, -8756)
 
 [node name="SP1" type="Node2D" parent="Pattern2"]
 position = Vector2(40, -218)
@@ -2017,6 +2133,13 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
+[node name="TrackerSprite" type="AnimatedSprite2D" parent="Pattern2"]
+position = Vector2(44, -218)
+scale = Vector2(4.92, 4.92)
+sprite_frames = SubResource("SpriteFrames_gj7wu")
+script = ExtResource("13_jx1vy")
+target_node = NodePath("../../BaseLevel/Player")
+
 [node name="SP2" type="Node2D" parent="Pattern2"]
 position = Vector2(742, -221)
 script = ExtResource("7_uq1ha")
@@ -2029,6 +2152,13 @@ r_start_time_choice = ""
 r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="TrackerSprite2" type="AnimatedSprite2D" parent="Pattern2"]
+position = Vector2(742, -218)
+scale = Vector2(4.92, 4.92)
+sprite_frames = SubResource("SpriteFrames_gj7wu")
+script = ExtResource("13_jx1vy")
+target_node = NodePath("../../BaseLevel/Player")
 
 [node name="SP3" type="Node2D" parent="Pattern2"]
 position = Vector2(400, -1110)
@@ -2044,6 +2174,13 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
+[node name="TrackerSprite3" type="AnimatedSprite2D" parent="Pattern2"]
+position = Vector2(402, -1110)
+scale = Vector2(4.92, 4.92)
+sprite_frames = SubResource("SpriteFrames_gj7wu")
+script = ExtResource("13_jx1vy")
+target_node = NodePath("../../BaseLevel/Player")
+
 [node name="SP4" type="Node2D" parent="Pattern2"]
 position = Vector2(66, -1941)
 script = ExtResource("7_uq1ha")
@@ -2056,6 +2193,11 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
+[node name="SpinnerSprite" type="AnimatedSprite2D" parent="Pattern2"]
+position = Vector2(67, -1941)
+scale = Vector2(1.84375, 1.84375)
+sprite_frames = SubResource("SpriteFrames_ohol1")
+
 [node name="SP5" type="Node2D" parent="Pattern2"]
 position = Vector2(748, -1930)
 script = ExtResource("7_uq1ha")
@@ -2067,6 +2209,11 @@ r_start_time_choice = ""
 r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SpinnerSprite2" type="AnimatedSprite2D" parent="Pattern2"]
+position = Vector2(757, -1930)
+scale = Vector2(1.84375, 1.84375)
+sprite_frames = SubResource("SpriteFrames_ohol1")
 
 [node name="SP6" type="Node2D" parent="Pattern2"]
 position = Vector2(276, -2584)
@@ -2081,6 +2228,13 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
+[node name="TrackerSprite4" type="AnimatedSprite2D" parent="Pattern2"]
+position = Vector2(276, -2584)
+scale = Vector2(4.92, 4.92)
+sprite_frames = SubResource("SpriteFrames_gj7wu")
+script = ExtResource("15_2027o")
+rotation_speed = 0.2
+
 [node name="SP7" type="Node2D" parent="Pattern2"]
 position = Vector2(526, -2588)
 script = ExtResource("7_uq1ha")
@@ -2093,6 +2247,13 @@ r_start_time_choice = ""
 r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="TrackerSprite5" type="AnimatedSprite2D" parent="Pattern2"]
+position = Vector2(538, -2584)
+scale = Vector2(4.92, 4.92)
+sprite_frames = SubResource("SpriteFrames_gj7wu")
+script = ExtResource("15_2027o")
+rotation_speed = 0.2
 
 [node name="SP8" type="Node2D" parent="Pattern2"]
 position = Vector2(687, -3738)
@@ -2107,6 +2268,13 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
+[node name="TrackerSprite6" type="AnimatedSprite2D" parent="Pattern2"]
+position = Vector2(694, -3738)
+scale = Vector2(4.92, 4.92)
+sprite_frames = SubResource("SpriteFrames_gj7wu")
+script = ExtResource("13_jx1vy")
+target_node = NodePath("../../BaseLevel/Player")
+
 [node name="SP9" type="Node2D" parent="Pattern2"]
 position = Vector2(104, -3745)
 script = ExtResource("7_uq1ha")
@@ -2118,6 +2286,11 @@ r_start_time_choice = ""
 r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SpinnerSprite3" type="AnimatedSprite2D" parent="Pattern2"]
+position = Vector2(109, -3745)
+scale = Vector2(1.84375, 1.84375)
+sprite_frames = SubResource("SpriteFrames_ohol1")
 
 [node name="SP10" type="Node2D" parent="Pattern2"]
 position = Vector2(523, -4257)
@@ -2204,6 +2377,13 @@ r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
+[node name="TrackerSprite7" type="AnimatedSprite2D" parent="Pattern2"]
+position = Vector2(96.9999, -6418)
+scale = Vector2(4.92, 4.92)
+sprite_frames = SubResource("SpriteFrames_gj7wu")
+script = ExtResource("15_2027o")
+rotation_speed = 1.0
+
 [node name="SP16" type="Node2D" parent="Pattern2"]
 position = Vector2(703, -6418)
 scale = Vector2(124.737, 1)
@@ -2218,6 +2398,13 @@ r_start_time_choice = ""
 r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="TrackerSprite8" type="AnimatedSprite2D" parent="Pattern2"]
+position = Vector2(703, -6418)
+scale = Vector2(4.92, 4.92)
+sprite_frames = SubResource("SpriteFrames_gj7wu")
+script = ExtResource("15_2027o")
+rotation_speed = 1.0
 
 [node name="SP17" type="Node2D" parent="Pattern2"]
 position = Vector2(37, -7595)
@@ -2247,7 +2434,7 @@ r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
 
 [node name="FollowPattern1" type="Node2D" parent="."]
-position = Vector2(75, -17258)
+position = Vector2(75, -17405)
 
 [node name="ExpiryTimer" type="Timer" parent="FollowPattern1"]
 wait_time = 30.0
@@ -2282,6 +2469,15 @@ r_start_time_choice = ""
 r_start_time_variation = Vector3(0, 0, 0)
 r_start_distance_choice = ""
 r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="Car" type="AnimatedSprite2D" parent="FollowPattern1"]
+position = Vector2(-17, 230)
+sprite_frames = SubResource("SpriteFrames_bhr22")
+
+[node name="Car2" type="AnimatedSprite2D" parent="FollowPattern1"]
+position = Vector2(635, 466)
+rotation = 3.14159
+sprite_frames = SubResource("SpriteFrames_bhr22")
 
 [node name="AntiCrown" type="Node2D" parent="."]
 modulate = Color(1, 1, 0.360784, 1)
@@ -2537,7 +2733,6 @@ shape = SubResource("RectangleShape2D_17f7y")
 position = Vector2(0, -25078)
 
 [node name="BaseLevel" parent="." node_paths=PackedStringArray("onCameraMakeVisibleAndFollow", "endingNotifier") instance=ExtResource("2_ewhb7")]
-position = Vector2(0, -15605)
 cameraSpeed = 300.0
 onCameraMakeVisibleAndFollow = [NodePath("../FollowPattern1")]
 endingNotifier = NodePath("../EndMarker")
