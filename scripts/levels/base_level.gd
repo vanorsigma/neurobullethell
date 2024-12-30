@@ -26,6 +26,7 @@ func _ready() -> void:
 
 	_set_player_to_customization()
 
+	$Player.health = 500 if $Player.has_armor else 100
 	hud.max_hp = $Player.health
 	dash.visible = not $Player.has_boots
 	dash.max_value = blinkCooldownTimer.wait_time

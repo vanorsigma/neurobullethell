@@ -2,6 +2,8 @@
 if story == 0 or story >= 2 or not is_story_death
 	=> END
 
+Monarch: Wha- [color=gray]grey[/color] bullets this time?
+
 You look at your [b][color=gray]armour[/color][/b].
 
 It was a hand-me-down from your sister.

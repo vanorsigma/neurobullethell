@@ -6,11 +6,11 @@ const cfrb = preload("res://dialogue/cfrb.dialogue")
 enum GameState { PLAY, PAUSE, GAME_OVER, LEVEL_COMPLETE, CUSTOMIZATION }
 
 var player: Player
-# var selected_items: int = 0b111111
-var selected_items: int = 0b011111
+var selected_items: int = 0b111111
+# var selected_items: int = 0b001111
 var state = GameState.PLAY
-# var story = 0
-var story = 1
+var story = 0
+# var story = 1
 var is_story_death = false
 
 var possible_death_dialogues = [crown_dialogue, cfrb]
