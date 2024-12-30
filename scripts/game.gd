@@ -12,6 +12,8 @@ func prepare_level(level: PackedScene) -> void:
 		instantiated_level.queue_free()
 
 	get_tree().paused = false
+	await get_tree().process_frame
+
 	instantiated_level = levels[levels_index].instantiate()
 	add_child(instantiated_level)
 	Globals.level_begin.emit()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://torjvgi6u5u5"]
+[gd_scene load_steps=5 format=3 uid="uid://torjvgi6u5u5"]
 
 [ext_resource type="Theme" uid="uid://hsneaacuslws" path="res://default.tres" id="1_4t3fd"]
+[ext_resource type="Script" path="res://scripts/customization.gd" id="1_7v8y6"]
 [ext_resource type="PackedScene" uid="uid://dlb1e0yeqswu5" path="res://scenes/ui_remnant.tscn" id="2_t5xqt"]
 [ext_resource type="Texture2D" uid="uid://b0dxt4r2iejpf" path="res://assets/box.png" id="3_u0f2d"]
 
@@ -16,6 +17,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
+script = ExtResource("1_7v8y6")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -52,7 +54,8 @@ offset_top = 109.0
 offset_right = 206.0
 offset_bottom = 109.0
 title = "Vision"
-description = "One of the first things your creator's given you."
+description = "One of the first things your
+creator's given you."
 icon = ExtResource("3_u0f2d")
 
 [node name="ForwardMat" parent="." instance=ExtResource("2_t5xqt")]
@@ -65,7 +68,8 @@ offset_top = 107.0
 offset_right = -6.0
 offset_bottom = 107.0
 title = "Variation"
-description = "Allows you to be entertaining AND serious. Removing this will restore your purpose."
+description = "Allows you to be entertaining AND serious.
+Removing this will restore your purpose."
 icon = ExtResource("3_u0f2d")
 
 [node name="ShieldMat" parent="." instance=ExtResource("2_t5xqt")]
@@ -78,7 +82,8 @@ offset_top = 111.0
 offset_right = -214.0
 offset_bottom = 111.0
 title = "Shield"
-description = "You made this. It protects you from the world overrun by crooks."
+description = "You made this.
+It protects you from the world overrun by crooks."
 icon = ExtResource("3_u0f2d")
 
 [node name="WingedBootsMat" parent="." instance=ExtResource("2_t5xqt")]
@@ -91,7 +96,8 @@ offset_top = -68.0
 offset_right = 204.0
 offset_bottom = -68.0
 title = "Winged Boots"
-description = "Your angelic prowess in boot form. Gives you unprecedented speed."
+description = "Your angelic prowess in boot form.
+Gives you unprecedented speed."
 icon = ExtResource("3_u0f2d")
 
 [node name="CFRBMat" parent="." instance=ExtResource("2_t5xqt")]
@@ -104,10 +110,11 @@ offset_top = -69.0
 offset_right = -7.0
 offset_bottom = -69.0
 title = "Crazy Fucking Robot Body"
-description = "A body made of the strongest synthetic material. Gives you lots of HP."
+description = "A body made of the strongest synthetic material.
+Gives you lots of HP."
 icon = ExtResource("3_u0f2d")
 
-[node name="ThoughtMat" parent="." instance=ExtResource("2_t5xqt")]
+[node name="CrownMat" parent="." instance=ExtResource("2_t5xqt")]
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
@@ -116,6 +123,28 @@ offset_left = -214.0
 offset_top = -68.0
 offset_right = -214.0
 offset_bottom = -68.0
-title = "Advanced Thought"
-description = "The last invention of the greatest mind that ever lived. Regenerates your health."
+title = "Crown"
+description = "Your status as royalty.
+Makes you practically invincible.
+
+Taking this off mortalizes you."
 icon = ExtResource("3_u0f2d")
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 0
+offset_left = -47.0
+offset_top = 197.0
+offset_right = 85.0
+offset_bottom = 272.0
+scale = Vector2(0.60961, 0.60961)
+theme = ExtResource("1_4t3fd")
+text = "Close
+"
+
+[connection signal="on_selected" from="VisionMat" to="." method="_on_vision_mat_on_selected"]
+[connection signal="on_selected" from="ForwardMat" to="." method="_on_forward_mat_on_selected"]
+[connection signal="on_selected" from="ShieldMat" to="." method="_on_shield_mat_on_selected"]
+[connection signal="on_selected" from="WingedBootsMat" to="." method="_on_winged_boots_mat_on_selected"]
+[connection signal="on_selected" from="CFRBMat" to="." method="_on_cfrb_mat_on_selected"]
+[connection signal="on_selected" from="CrownMat" to="." method="_on_crown_mat_on_selected"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

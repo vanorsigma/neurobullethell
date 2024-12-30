@@ -1,8 +1,9 @@
 extends Node2D
 
-enum GameState { PLAY, PAUSE, GAME_OVER, LEVEL_COMPLETE }
+enum GameState { PLAY, PAUSE, GAME_OVER, LEVEL_COMPLETE, CUSTOMIZATION }
 
 var player: Player
+var selected_items: int = 0b111111
 var state = GameState.PLAY
 
 signal bullet_hit(body: Node, damage: int)

@@ -12,11 +12,19 @@ extends Node2D
 var trackingArray = []
 var ended = false
 
+func _set_player_to_customization() -> void:
+	$Player.has_shield = Globals.selected_items & 0b000100
+	$Player.has_boots = Globals.selected_items & 0b001000
+	$Player.has_armor = Globals.selected_items & 0b010000
+	$Player.has_crown = Globals.selected_items & 0b100000
+
 func _ready() -> void:
 	if not endingNotifier:
 		printerr("EndingNotifier not set in BaseLevel, but we'll continue anyway")
 	else:
 		endingNotifier.screen_entered.connect(self._on_ending_visible)
+
+	_set_player_to_customization()
 
 	hud.max_hp = $Player.health
 	dash.visible = not $Player.has_boots

@@ -26,10 +26,6 @@ func _ready() -> void:
 	Globals.bullet_hit.connect(_on_bullet_hit_dispatcher)
 	Globals.self_destruct.connect(do_damage.bind(999999999, true))
 
-	flightBoots.visible = has_boots
-	crown.visible = has_crown
-	armor.visible = has_armor
-
 func _on_bullet_hit_dispatcher(body: Node, damage: int) -> void:
 	if body == self or body == $Shield:
 		do_damage(damage)
@@ -138,6 +134,9 @@ func _play_animation(direction: Direction) -> void:
 	$Shield/ShieldSprite.play("crowned" if has_crown else "default")
 
 func _process(delta: float) -> void:
+	flightBoots.visible = has_boots
+	crown.visible = has_crown
+	armor.visible = has_armor
 	$Shield.visible = shield > 0
 
 	if not $BlinkTimer.is_stopped():
