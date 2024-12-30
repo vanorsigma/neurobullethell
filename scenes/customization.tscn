@@ -45,6 +45,7 @@ theme = ExtResource("1_4t3fd")
 text = "Remnants"
 
 [node name="VisionMat" parent="." instance=ExtResource("2_t5xqt")]
+visible = false
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
@@ -59,6 +60,7 @@ creator's given you."
 icon = ExtResource("3_u0f2d")
 
 [node name="ForwardMat" parent="." instance=ExtResource("2_t5xqt")]
+visible = false
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
