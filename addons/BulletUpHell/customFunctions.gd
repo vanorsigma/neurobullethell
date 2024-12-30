@@ -15,7 +15,7 @@ func laser_collide(col_pos:Vector2, collider:Node, normal:Vector2, full_length:f
 	pass
 
 func bullet_collide_body(body_rid:RID,body:Node,body_shape_index:int,local_shape_index:int,shared_area:Area2D, B:Dictionary) -> void:
-	Globals.bullet_hit.emit(body, B["props"]["damage"])
+	Globals.bullet_hit.emit(body, B["props"]["damage"], true if "armor_bullet" in B["props"] else false)
 	## you can use B["props"]["damage"] to get the bullet's damage
 	## you can use B["RID"] to get the bullet's RID
 	## you can use B["props"]["<your custom data name>"] to get the bullet's custom data

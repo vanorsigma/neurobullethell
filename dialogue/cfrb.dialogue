@@ -1,5 +1,5 @@
 ~ cfrb
-if story >= 2 or not is_story_death
+if story == 0 or story >= 2 or not is_story_death
 	=> END
 
 You look at your [b][color=gray]armour[/color][/b].

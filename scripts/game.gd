@@ -1,8 +1,9 @@
 extends Node2D
 
 var level1 = preload("res://scenes/levels/level1.tscn")
+var level2 = preload("res://scenes/levels/level2.tscn")
 
-var levels = [level1]
+var levels = [level1, level2]
 
 var levels_index = 0
 var instantiated_level = null

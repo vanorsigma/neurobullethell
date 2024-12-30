@@ -1,0 +1,1048 @@
+[gd_scene load_steps=38 format=3 uid="uid://b3ltsjgh6q1lm"]
+
+[ext_resource type="Script" path="res://scripts/levels/level_2.gd" id="1_46f4e"]
+[ext_resource type="Texture2D" uid="uid://bmlccldrc12ri" path="res://assets/parallex.png" id="1_ld8s5"]
+[ext_resource type="PackedScene" uid="uid://b4n5yu0pn2k6j" path="res://scenes/levels/base_level.tscn" id="2_37fdn"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHBulletProperties.gd" id="2_ohd1a"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHSpawnPoint.gd" id="2_ora8t"]
+[ext_resource type="Texture2D" uid="uid://f8irq202fdgn" path="res://addons/BulletUpHell/Bullet/Sprites/Bullet_3.png" id="3_6k0op"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Bullet/animStates.gd" id="3_84miq"]
+[ext_resource type="AudioStream" uid="uid://jl4ng0des511" path="res://assets/level2.wav" id="4_l31v3"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Bullet/BulletProps.gd" id="4_u6p86"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHPattern.gd" id="5_a0wto"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="6_v358n"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternLine.gd" id="8_520j1"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="9_ppcpl"]
+[ext_resource type="Texture2D" uid="uid://ckusqutsb527x" path="res://assets/shield.png" id="12_l1dyq"]
+
+[sub_resource type="Curve2D" id="Curve2D_r848g"]
+
+[sub_resource type="Curve" id="Curve_uf3dh"]
+
+[sub_resource type="Curve" id="Curve_km2w6"]
+
+[sub_resource type="Gradient" id="Gradient_ne67h"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.404511, 0.404511, 0.404511, 1)
+
+[sub_resource type="PackedDataContainer" id="PackedDataContainer_wx7md"]
+script = ExtResource("4_u6p86")
+damage = 0.0
+speed = 500.0
+scale = 1.0
+angle = 0.0
+groups = PackedStringArray()
+custom_data = {
+"armor_bullet": true
+}
+death_after_time = 30.0
+death_outside_box = Rect2(0, 0, 0, 0)
+death_from_collision = true
+death_speed_under = 0.0
+death_culling_overwrite = 3
+spec_modulate = SubResource("Gradient_ne67h")
+spec_modulate_loop = 0.0
+no_rotation = false
+z_index = 0
+anim_more = Array[ExtResource("3_84miq")]([])
+spec_trail_length = 0.0
+spec_trail_width = 0.0
+spec_trail_modulate = Color(0.351563, 0.351563, 0.351563, 1)
+spec_trail_fade_out = false
+spec_trail_thin_out = false
+spec_trail_smooth = 0.03
+a_direction_equation = ""
+a_angular_equation = ""
+a_curve_movement = 0
+a_speed_multi_iterations = 0
+a_speed_multi_scale = 0.0
+a_speed_multiplier = SubResource("Curve_uf3dh")
+depth_active = Vector2(0, 0)
+depth_spawn = 0.0
+depth_speed = 100.0
+depth_min_max = Vector2(-300, 100)
+depth_bounce = false
+spec_bounces = 0
+spec_no_collision = false
+spec_rotating_speed = 0.0
+spec_only_spin_sprite = true
+spec_weight = 1.0
+scale_multi_iterations = 0
+scale_multiplier = SubResource("Curve_km2w6")
+scale_multi_scale = 1.0
+trigger_container = ""
+trigger_wait_for_shot = true
+homing_type = 0
+homing_target = NodePath("")
+homing_steer = 0.0
+homing_time_start = 0.0
+homing_duration = 999.0
+homing_detection_dist = 0.0
+homing_start_signal = ""
+homing_range = Vector2(9999, 20)
+homing_imprecision = Vector2(0, 0)
+r_randomisation_chances = 1.0
+r_speed_choice = PackedFloat32Array()
+r_speed_variation = Vector3(0, 0, 0)
+r_scale_choice = PackedFloat32Array()
+r_scale_variation = Vector3(0, 0, 0)
+r_angle_choice = PackedFloat32Array()
+r_angle_variation = Vector3(0, 0, 0)
+r_group_choice = []
+r_bounce_choice = PackedInt32Array()
+r_bounce_variation = Vector3(0, 0, 0)
+r_no_coll_chances = 0.0
+r_modulate_variation = Vector3(0, 0, 0)
+r_trail_length_variation = Vector3(0, 0, 0)
+r_trail_color_variation = Vector3(0, 0, 0)
+r_rotating_variation = Vector3(0, 0, 0)
+r_death_after_choice = PackedFloat32Array()
+r_death_after_variation = Vector3(0, 0, 0)
+r_death_outside_chances = 0.0
+r_dir_equation_choice = PackedStringArray()
+r_curve_choice = []
+r_speed_multi_curve_choice = []
+r_speed_multi_iter_variation = Vector3(0, 0, 0)
+r_speed_multi_scale_variation = Vector3(0, 0, 0)
+r_trigger_choice = PackedStringArray()
+r_wait_for_shot_chances = 0.0
+r_homing_target_choice = []
+r_special_target_choice = PackedStringArray()
+r_group_target_choice = PackedStringArray()
+r_pos_target_choice = PackedVector2Array()
+r_steer_choice = PackedFloat32Array()
+r_steer_variation = Vector3(0, 0, 0)
+r_homing_delay_choice = PackedFloat32Array()
+r_homing_delay_variation = Vector3(0, 0, 0)
+r_homing_dur_choice = PackedFloat32Array()
+r_homing_dur_variation = Vector3(0, 0, 0)
+r_scale_multi_curve_choice = []
+r_scale_multi_iter_variation = Vector3(0, 0, 0)
+r_scale_multi_scale_variation = Vector3(0, 0, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_eclwq"]
+
+[sub_resource type="Curve" id="Curve_gixhm"]
+
+[sub_resource type="Curve" id="Curve_c3c35"]
+
+[sub_resource type="PackedDataContainer" id="PackedDataContainer_sa2mx"]
+script = ExtResource("4_u6p86")
+damage = 1.0
+speed = 400.0
+scale = 1.0
+angle = 0.0
+groups = PackedStringArray()
+custom_data = {}
+death_after_time = 30.0
+death_outside_box = Rect2(0, 0, 0, 0)
+death_from_collision = true
+death_speed_under = 0.0
+death_culling_overwrite = 3
+spec_modulate_loop = 0.0
+no_rotation = false
+z_index = 0
+anim_more = Array[ExtResource("3_84miq")]([])
+spec_trail_length = 0.0
+spec_trail_width = 0.0
+spec_trail_modulate = Color(1, 1, 1, 1)
+spec_trail_fade_out = false
+spec_trail_thin_out = false
+spec_trail_smooth = 0.03
+a_direction_equation = ""
+a_angular_equation = ""
+a_curve_movement = 0
+a_speed_multi_iterations = 0
+a_speed_multi_scale = 0.0
+a_speed_multiplier = SubResource("Curve_gixhm")
+depth_active = Vector2(0, 0)
+depth_spawn = 0.0
+depth_speed = 100.0
+depth_min_max = Vector2(-300, 100)
+depth_bounce = false
+spec_bounces = 5
+spec_no_collision = false
+spec_rotating_speed = 0.0
+spec_only_spin_sprite = true
+spec_weight = 1.0
+scale_multi_iterations = 0
+scale_multiplier = SubResource("Curve_c3c35")
+scale_multi_scale = 1.0
+trigger_container = ""
+trigger_wait_for_shot = true
+homing_type = 0
+homing_target = NodePath("")
+homing_steer = 0.0
+homing_time_start = 0.0
+homing_duration = 999.0
+homing_detection_dist = 0.0
+homing_start_signal = ""
+homing_range = Vector2(9999, 20)
+homing_imprecision = Vector2(0, 0)
+r_randomisation_chances = 1.0
+r_speed_choice = PackedFloat32Array()
+r_speed_variation = Vector3(0, 0, 0)
+r_scale_choice = PackedFloat32Array()
+r_scale_variation = Vector3(0, 0, 0)
+r_angle_choice = PackedFloat32Array()
+r_angle_variation = Vector3(0, 0, 0)
+r_group_choice = []
+r_bounce_choice = PackedInt32Array()
+r_bounce_variation = Vector3(0, 0, 0)
+r_no_coll_chances = 0.0
+r_modulate_variation = Vector3(0, 0, 0)
+r_trail_length_variation = Vector3(0, 0, 0)
+r_trail_color_variation = Vector3(0, 0, 0)
+r_rotating_variation = Vector3(0, 0, 0)
+r_death_after_choice = PackedFloat32Array()
+r_death_after_variation = Vector3(0, 0, 0)
+r_death_outside_chances = 0.0
+r_dir_equation_choice = PackedStringArray()
+r_curve_choice = []
+r_speed_multi_curve_choice = []
+r_speed_multi_iter_variation = Vector3(0, 0, 0)
+r_speed_multi_scale_variation = Vector3(0, 0, 0)
+r_trigger_choice = PackedStringArray()
+r_wait_for_shot_chances = 0.0
+r_homing_target_choice = []
+r_special_target_choice = PackedStringArray()
+r_group_target_choice = PackedStringArray()
+r_pos_target_choice = PackedVector2Array()
+r_steer_choice = PackedFloat32Array()
+r_steer_variation = Vector3(0, 0, 0)
+r_homing_delay_choice = PackedFloat32Array()
+r_homing_delay_variation = Vector3(0, 0, 0)
+r_homing_dur_choice = PackedFloat32Array()
+r_homing_dur_variation = Vector3(0, 0, 0)
+r_scale_multi_curve_choice = []
+r_scale_multi_iter_variation = Vector3(0, 0, 0)
+r_scale_multi_scale_variation = Vector3(0, 0, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_lyiqp"]
+
+[sub_resource type="Curve" id="Curve_0xxja"]
+
+[sub_resource type="PackedDataContainer" id="PackedDataContainer_14k33"]
+script = ExtResource("4_u6p86")
+damage = 30.0
+speed = 400.0
+scale = 3.0
+angle = 0.0
+groups = PackedStringArray()
+custom_data = {}
+death_after_time = 5.0
+death_outside_box = Rect2(0, 0, 0, 0)
+death_from_collision = true
+death_speed_under = 0.0
+death_culling_overwrite = 3
+spec_modulate_loop = 0.0
+no_rotation = false
+z_index = 0
+anim_more = Array[ExtResource("3_84miq")]([])
+spec_trail_length = 0.0
+spec_trail_width = 0.0
+spec_trail_modulate = Color(1, 1, 1, 1)
+spec_trail_fade_out = false
+spec_trail_thin_out = false
+spec_trail_smooth = 0.03
+a_direction_equation = ""
+a_angular_equation = ""
+a_curve_movement = 0
+a_speed_multi_iterations = 0
+a_speed_multi_scale = 0.0
+depth_active = Vector2(0, 0)
+depth_spawn = 0.0
+depth_speed = 100.0
+depth_min_max = Vector2(-300, 100)
+depth_bounce = false
+spec_bounces = 0
+spec_no_collision = false
+spec_rotating_speed = 0.0
+spec_only_spin_sprite = true
+spec_weight = 1.0
+scale_multi_iterations = 0
+scale_multiplier = SubResource("Curve_0xxja")
+scale_multi_scale = 1.0
+trigger_container = ""
+trigger_wait_for_shot = true
+homing_type = 0
+homing_target = NodePath("../BaseLevel/Player")
+homing_steer = 1000.0
+homing_time_start = 0.0
+homing_duration = 999.0
+homing_detection_dist = 0.0
+homing_start_signal = ""
+homing_range = Vector2(9999, 20)
+homing_imprecision = Vector2(10, 10)
+r_randomisation_chances = 1.0
+r_speed_choice = PackedFloat32Array()
+r_speed_variation = Vector3(0, 0, 0)
+r_scale_choice = PackedFloat32Array()
+r_scale_variation = Vector3(0, 0, 0)
+r_angle_choice = PackedFloat32Array()
+r_angle_variation = Vector3(0, 0, 0)
+r_group_choice = []
+r_bounce_choice = PackedInt32Array()
+r_bounce_variation = Vector3(0, 0, 0)
+r_no_coll_chances = 0.0
+r_modulate_variation = Vector3(0, 0, 0)
+r_trail_length_variation = Vector3(0, 0, 0)
+r_trail_color_variation = Vector3(0, 0, 0)
+r_rotating_variation = Vector3(0, 0, 0)
+r_death_after_choice = PackedFloat32Array()
+r_death_after_variation = Vector3(0, 0, 0)
+r_death_outside_chances = 0.0
+r_dir_equation_choice = PackedStringArray()
+r_curve_choice = []
+r_speed_multi_curve_choice = []
+r_speed_multi_iter_variation = Vector3(0, 0, 0)
+r_speed_multi_scale_variation = Vector3(0, 0, 0)
+r_trigger_choice = PackedStringArray()
+r_wait_for_shot_chances = 0.0
+r_homing_target_choice = []
+r_special_target_choice = PackedStringArray()
+r_group_target_choice = PackedStringArray()
+r_pos_target_choice = PackedVector2Array()
+r_steer_choice = PackedFloat32Array()
+r_steer_variation = Vector3(0, 0, 0)
+r_homing_delay_choice = PackedFloat32Array()
+r_homing_delay_variation = Vector3(0, 0, 0)
+r_homing_dur_choice = PackedFloat32Array()
+r_homing_dur_variation = Vector3(0, 0, 0)
+r_scale_multi_curve_choice = []
+r_scale_multi_iter_variation = Vector3(0, 0, 0)
+r_scale_multi_scale_variation = Vector3(0, 0, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_bjpkw"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_t0sax"]
+resource_name = "PatternOne"
+script = ExtResource("6_v358n")
+bullet = "Rapid"
+nbr = 1
+iterations = 400
+cooldown_spawn = 0.02
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+cooldown_layers = PackedVector2Array()
+cooldown_stasis = false
+on_interruption = 0
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+wait_behavior = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+impulse = 10
+bullet_list = Array[String]([])
+skip_step = 0
+skip_list = Array[PackedInt32Array]([])
+skip_in_list = true
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lhfnw"]
+resource_name = "PatternOne"
+script = ExtResource("6_v358n")
+bullet = "RapidArmor"
+nbr = 1
+iterations = 500
+cooldown_spawn = 0.0
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+cooldown_layers = PackedVector2Array()
+cooldown_stasis = false
+on_interruption = 0
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+wait_behavior = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+impulse = 0
+bullet_list = Array[String]([])
+skip_step = 0
+skip_list = Array[PackedInt32Array]([])
+skip_in_list = true
+
+[sub_resource type="Curve2D" id="Curve2D_q2vo2"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_e1b7b"]
+resource_name = "PatternLine"
+script = ExtResource("8_520j1")
+offset = Vector2(0, 60)
+center = 0
+symmetric = true
+bullet = "Heavy"
+nbr = 5
+iterations = 50
+cooldown_spawn = 0.5
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+cooldown_layers = PackedVector2Array()
+cooldown_stasis = false
+on_interruption = 0
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+wait_behavior = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+impulse = 0
+bullet_list = Array[String]([])
+skip_step = 0
+skip_list = Array[PackedInt32Array]([])
+skip_in_list = true
+
+[sub_resource type="Curve2D" id="Curve2D_nw4p0"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_t7huq"]
+resource_name = "PatternOne"
+script = ExtResource("6_v358n")
+bullet = "Heavy"
+nbr = 1
+iterations = 10
+cooldown_spawn = 0.5
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+cooldown_layers = PackedVector2Array()
+cooldown_stasis = false
+on_interruption = 0
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+wait_behavior = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+impulse = 0
+bullet_list = Array[String]([])
+skip_step = 0
+skip_list = Array[PackedInt32Array]([])
+skip_in_list = true
+
+[sub_resource type="Curve2D" id="Curve2D_ouh4u"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_vo4uq"]
+resource_name = "PatternCircle"
+script = ExtResource("9_ppcpl")
+radius = 0.0
+angle_total = 6.28319
+angle_decal = 0.0
+center = 0
+perspective = 1.0
+symmetric = false
+bullet = "Rapid"
+nbr = 10
+iterations = 30
+cooldown_spawn = 0.4
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+cooldown_layers = PackedVector2Array()
+cooldown_stasis = false
+on_interruption = 0
+pattern_angle = 0.0
+pattern_angle_target = NodePath("")
+pattern_angle_mouse = false
+wait_behavior = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+impulse = 0
+bullet_list = Array[String]([])
+skip_step = 0
+skip_list = Array[PackedInt32Array]([])
+skip_in_list = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahfk3"]
+size = Vector2(836, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kul3"]
+size = Vector2(53.9608, 67.3682)
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_46f4e")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 640)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(399, -14568)
+scale = Vector2(4.005, 37.9275)
+texture = ExtResource("1_ld8s5")
+
+[node name="RapidArmor" type="Path2D" parent="."]
+curve = SubResource("Curve2D_r848g")
+script = ExtResource("2_ohd1a")
+id = "RapidArmor"
+props = SubResource("PackedDataContainer_wx7md")
+
+[node name="Rapid" type="Path2D" parent="."]
+curve = SubResource("Curve2D_eclwq")
+script = ExtResource("2_ohd1a")
+id = "Rapid"
+props = SubResource("PackedDataContainer_sa2mx")
+
+[node name="Heavy" type="Path2D" parent="."]
+curve = SubResource("Curve2D_lyiqp")
+script = ExtResource("2_ohd1a")
+id = "Heavy"
+props = SubResource("PackedDataContainer_14k33")
+
+[node name="FastSpawnSingle" type="Path2D" parent="."]
+curve = SubResource("Curve2D_bjpkw")
+script = ExtResource("5_a0wto")
+id = "FastSpawnSingle"
+pattern = SubResource("NavigationPolygon_t0sax")
+
+[node name="FastSpawnSingleArmor" type="Path2D" parent="."]
+curve = SubResource("Curve2D_bjpkw")
+script = ExtResource("5_a0wto")
+id = "FastSpawnSingleArmor"
+pattern = SubResource("NavigationPolygon_lhfnw")
+
+[node name="SlowSpawnLine" type="Path2D" parent="."]
+curve = SubResource("Curve2D_q2vo2")
+script = ExtResource("5_a0wto")
+id = "SlowSpawnLine"
+pattern = SubResource("NavigationPolygon_e1b7b")
+
+[node name="SlowSpawnSingle" type="Path2D" parent="."]
+curve = SubResource("Curve2D_nw4p0")
+script = ExtResource("5_a0wto")
+id = "SlowSpawnSingle"
+pattern = SubResource("NavigationPolygon_t7huq")
+
+[node name="RapidCircle" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ouh4u")
+script = ExtResource("5_a0wto")
+id = "RapidCircle"
+pattern = SubResource("NavigationPolygon_vo4uq")
+
+[node name="FollowPattern1" type="Node2D" parent="."]
+position = Vector2(65, -805)
+
+[node name="ExpiryTimer" type="Timer" parent="FollowPattern1"]
+wait_time = 30.0
+one_shot = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="FollowPattern1"]
+
+[node name="SP1" type="Node2D" parent="FollowPattern1"]
+visible = false
+position = Vector2(-20, 335)
+script = ExtResource("2_ora8t")
+auto_pattern_id = "FastSpawnSingle"
+rotating_speed = 0.2
+pool_amount = 500
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP2" type="Node2D" parent="FollowPattern1"]
+visible = false
+position = Vector2(683, 335)
+script = ExtResource("2_ora8t")
+auto_pattern_id = "FastSpawnSingle"
+rotating_speed = 0.2
+pool_amount = 500
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="FollowPattern2" type="Node2D" parent="."]
+position = Vector2(72, -2218)
+
+[node name="ExpiryTimer" type="Timer" parent="FollowPattern2"]
+wait_time = 30.0
+one_shot = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="FollowPattern2"]
+
+[node name="SP1" type="Node2D" parent="FollowPattern2"]
+visible = false
+position = Vector2(-20, 335)
+rotation = -0.785398
+script = ExtResource("2_ora8t")
+auto_pattern_id = "SlowSpawnLine"
+pool_amount = 500
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP2" type="Node2D" parent="FollowPattern2"]
+visible = false
+position = Vector2(683, 335)
+rotation = 3.92699
+script = ExtResource("2_ora8t")
+auto_pattern_id = "SlowSpawnLine"
+pool_amount = 500
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="FollowPattern3" type="Node2D" parent="."]
+position = Vector2(65, -3996)
+
+[node name="ExpiryTimer" type="Timer" parent="FollowPattern3"]
+wait_time = 30.0
+one_shot = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="FollowPattern3"]
+
+[node name="SP1" type="Node2D" parent="FollowPattern3"]
+visible = false
+position = Vector2(-20, 335)
+script = ExtResource("2_ora8t")
+auto_pattern_id = "RapidCircle"
+pool_amount = 200
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP2" type="Node2D" parent="FollowPattern3"]
+visible = false
+position = Vector2(683, 335)
+rotation = 3.14159
+script = ExtResource("2_ora8t")
+auto_pattern_id = "RapidCircle"
+pool_amount = 200
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="StaticPattern" type="Node2D" parent="."]
+position = Vector2(5, -5215)
+
+[node name="SpawnPoint" type="Node2D" parent="StaticPattern"]
+position = Vector2(199, 907)
+script = ExtResource("2_ora8t")
+auto_pattern_id = "SlowSpawnSingle"
+pool_amount = 5
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SpawnPoint2" type="Node2D" parent="StaticPattern"]
+position = Vector2(518, 709)
+script = ExtResource("2_ora8t")
+auto_pattern_id = "SlowSpawnSingle"
+pool_amount = 5
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SpawnPoint3" type="Node2D" parent="StaticPattern"]
+position = Vector2(199, 541)
+script = ExtResource("2_ora8t")
+auto_pattern_id = "SlowSpawnSingle"
+pool_amount = 5
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SpawnPoint4" type="Node2D" parent="StaticPattern"]
+position = Vector2(373, 415)
+script = ExtResource("2_ora8t")
+auto_pattern_id = "SlowSpawnSingle"
+pool_amount = 5
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SpawnPoint5" type="Node2D" parent="StaticPattern"]
+position = Vector2(509, 223)
+script = ExtResource("2_ora8t")
+auto_pattern_id = "SlowSpawnSingle"
+pool_amount = 5
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="AntiCrown" type="Node2D" parent="."]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(0, -83)
+
+[node name="Ball1" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball2" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(21, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball3" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(42, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball4" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(62, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball5" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(83, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball6" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(104, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball7" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(125, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball8" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(146, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball9" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(167, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball10" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(188, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball11" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(209, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball12" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(229, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball13" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(250, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball14" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(271, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball15" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(292, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball16" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(313, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball17" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(334, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball18" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(355, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball19" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(376, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball20" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(397, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball21" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(418, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball22" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(438, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball23" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(459, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball24" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(480, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball25" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(501, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball26" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(522, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball27" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(543, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball28" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(564, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball29" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(585, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball30" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(605, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball31" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(626, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball32" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(647, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball33" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(668, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball34" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(689, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball35" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(710, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball36" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(731, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball37" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(752, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball38" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(773, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball39" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(794, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Ball40" type="Sprite2D" parent="AntiCrown"]
+modulate = Color(1, 1, 0.360784, 1)
+self_modulate = Color(0.82626, 0.765653, 3.85046e-07, 1)
+position = Vector2(815, 0)
+texture = ExtResource("3_6k0op")
+
+[node name="Area2D" type="Area2D" parent="AntiCrown"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AntiCrown/Area2D"]
+position = Vector2(408, 0)
+shape = SubResource("RectangleShape2D_ahfk3")
+
+[node name="ArmorKillZone" type="Node2D" parent="."]
+position = Vector2(0, -11800)
+
+[node name="ExpiryTimer" type="Timer" parent="ArmorKillZone"]
+wait_time = 30.0
+one_shot = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ArmorKillZone"]
+position = Vector2(75, -17405)
+
+[node name="SP1" type="Node2D" parent="ArmorKillZone"]
+position = Vector2(120, 147)
+script = ExtResource("2_ora8t")
+auto_pattern_id = "FastSpawnSingleArmor"
+rotating_speed = 1.0
+pool_amount = 200
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="SP2" type="Node2D" parent="ArmorKillZone"]
+position = Vector2(665, 147)
+script = ExtResource("2_ora8t")
+auto_pattern_id = "FastSpawnSingleArmor"
+rotating_speed = 1.0
+pool_amount = 200
+r_active_chances = 1.0
+r_rotating_variation = Vector3(0, 0, 0)
+r_pattern_choice = ""
+r_start_time_choice = ""
+r_start_time_variation = Vector3(0, 0, 0)
+r_start_distance_choice = ""
+r_start_distance_variation = Vector3(0, 0, 0)
+
+[node name="ShieldRepower" type="Sprite2D" parent="."]
+position = Vector2(371, -8247)
+scale = Vector2(1.59375, 1.78125)
+texture = ExtResource("12_l1dyq")
+
+[node name="ShieldDetect" type="Area2D" parent="ShieldRepower"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldRepower/ShieldDetect"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_3kul3")
+
+[node name="EndMarker" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -25078)
+
+[node name="BaseLevel" parent="." node_paths=PackedStringArray("onCameraMakeVisibleAndFollow", "endingNotifier") instance=ExtResource("2_37fdn")]
+position = Vector2(0, -10859)
+cameraSpeed = 300.0
+onCameraMakeVisibleAndFollow = [NodePath("../FollowPattern1"), NodePath("../FollowPattern2"), NodePath("../FollowPattern3"), NodePath("../ArmorKillZone")]
+endingNotifier = NodePath("../EndMarker")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_l31v3")
+autoplay = true
+
+[connection signal="body_entered" from="AntiCrown/Area2D" to="." method="_on_anticrown_entered"]
+[connection signal="body_entered" from="ShieldRepower/ShieldDetect" to="." method="_on_shield_detect_body_entered"]

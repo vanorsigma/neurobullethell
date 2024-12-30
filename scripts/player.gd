@@ -6,7 +6,7 @@ enum Direction { UP, LEFT, RIGHT, IDLE }
 @export var base_speed: float = 100
 @export var boots_modifier: int = 3
 @export var health: float = 500
-@export var shield: float = 500
+@export var shield: float = 300
 @export var blink_speed_modifier: float = 3
 
 @export var has_shield: bool = true
@@ -26,9 +26,13 @@ func _ready() -> void:
 	Globals.bullet_hit.connect(_on_bullet_hit_dispatcher)
 	Globals.self_destruct.connect(do_damage.bind(999999999, true))
 
-func _on_bullet_hit_dispatcher(body: Node, damage: int) -> void:
-	if body == self or body == $Shield:
+func _on_bullet_hit_dispatcher(body: Node, damage: int, armor_bullet: bool) -> void:
+	if body == self or body == $Shield and not invincible:
 		do_damage(damage)
+		if armor_bullet and has_armor:
+			Globals.is_story_death = true
+			do_damage(999999999, true)
+			invincible = true
 
 func do_damage(damage: int, bypass_crown: bool = false) -> void:
 	if invincible:

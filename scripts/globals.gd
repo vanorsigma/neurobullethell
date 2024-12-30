@@ -1,18 +1,21 @@
 extends Node2D
 
-var crown_dialogue = preload("res://dialogue/crown.dialogue")
+const crown_dialogue = preload("res://dialogue/crown.dialogue")
+const cfrb = preload("res://dialogue/cfrb.dialogue")
 
 enum GameState { PLAY, PAUSE, GAME_OVER, LEVEL_COMPLETE, CUSTOMIZATION }
 
 var player: Player
-var selected_items: int = 0b111111
+# var selected_items: int = 0b111111
+var selected_items: int = 0b011111
 var state = GameState.PLAY
-var story = 0
-var is_story_death = true
+# var story = 0
+var story = 1
+var is_story_death = false
 
-var possible_death_dialogues = [crown_dialogue]
+var possible_death_dialogues = [crown_dialogue, cfrb]
 
-signal bullet_hit(body: Node, damage: int)
+signal bullet_hit(body: Node, damage: int, armor_bullet: bool)
 signal self_destruct()
 signal game_over()
 signal level_begin()
