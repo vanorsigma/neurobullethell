@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://qmrpflk6q071"
+path="res://.godot/imported/shoe.dialogue-34e62a6720fa562dbae245ad97ff8239.tres"
+
+[deps]
+
+source_file="res://dialogue/shoe.dialogue"
+dest_files=["res://.godot/imported/shoe.dialogue-34e62a6720fa562dbae245ad97ff8239.tres"]
+
+[params]
+
+defaults=true
