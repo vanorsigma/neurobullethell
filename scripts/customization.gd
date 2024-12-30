@@ -8,15 +8,13 @@ func _ready() -> void:
 	$CFRBMat.selected = Globals.selected_items & 0b010000
 	$CrownMat.selected = Globals.selected_items & 0b100000
 
+func _process(delta: float) -> void:
 	$CrownMat.disabled = Globals.story <= 0
 	$CFRBMat.disabled = Globals.story <= 1
 	$WingedBootsMat.disabled = Globals.story <= 2
 	$ShieldMat.disabled = Globals.story <= 3
 	$ForwardMat.disabled = Globals.story <= 4
 	$VisionMat.disabled = Globals.story <= 5
-
-func _process(delta: float) -> void:
-	pass
 
 
 func _on_vision_mat_on_selected(is_selected: bool) -> void:

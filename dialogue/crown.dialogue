@@ -1,0 +1,26 @@
+~ crown
+if story >= 1 or not is_story_death
+	=> END
+
+Monarch: Ouch, what the hell!
+
+Those [color=yellow]Yellow[/color] orbs, do they perhaps...
+
+You look at your [color=yellow]crown[/color].
+
+You cringe in disdain.
+
+What have you been doing all these years?
+
+...
+
+What have all of you been fighting for?
+
+...
+
+You contemplated tossing your [color=yellow]crown[/color] aside.
+
+[i]You can now unequip your [color=yellow]crown[/color][/i].
+
+set story = 1
+=> END

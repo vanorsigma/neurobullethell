@@ -1,11 +1,16 @@
 extends Node2D
 
+var crown_dialogue = preload("res://dialogue/crown.dialogue")
+
 enum GameState { PLAY, PAUSE, GAME_OVER, LEVEL_COMPLETE, CUSTOMIZATION }
 
 var player: Player
 var selected_items: int = 0b111111
 var state = GameState.PLAY
 var story = 0
+var is_story_death = true
+
+var possible_death_dialogues = [crown_dialogue]
 
 signal bullet_hit(body: Node, damage: int)
 signal self_destruct()
@@ -25,9 +30,15 @@ func _ready():
 
 func _on_level_begin():
 	state = GameState.PLAY
+	is_story_death = false
 
 func _on_game_over():
 	state = GameState.GAME_OVER
+
+	# the death dialogues themselves have logic to quit early
+	for dialogue in possible_death_dialogues:
+		var dialog_node = DialogueManager.show_dialogue_balloon(dialogue)
+		dialog_node.process_mode = ProcessMode.PROCESS_MODE_ALWAYS
 
 func _on_level_complete():
 	state = GameState.LEVEL_COMPLETE

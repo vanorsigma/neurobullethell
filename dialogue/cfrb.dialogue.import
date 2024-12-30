@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://chbudajivpoki"
+path="res://.godot/imported/cfrb.dialogue-67a7dfc08aa77ffcc9e84604af1102de.tres"
+
+[deps]
+
+source_file="res://dialogue/cfrb.dialogue"
+dest_files=["res://.godot/imported/cfrb.dialogue-67a7dfc08aa77ffcc9e84604af1102de.tres"]
+
+[params]
+
+defaults=true

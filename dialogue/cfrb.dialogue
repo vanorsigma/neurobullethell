@@ -1,0 +1,20 @@
+~ cfrb
+if story >= 2 or not is_story_death
+	=> END
+
+You look at your [b][color=gray]armour[/color][/b].
+
+It was a hand-me-down from your sister.
+
+...
+
+Albiet, she didn't explictly gave it to you.
+
+You may as well have robbed it off her cold body.
+
+You are disgusted at yourself.
+
+[i]You can now unequip your [b][color=gray]armour[/color][/b][/i].
+
+set story = 2
+=> END

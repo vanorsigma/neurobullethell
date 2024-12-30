@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 func _on_area_2d_body_entered(node: Node2D) -> void:
 	if node == Globals.player and Globals.player.has_crown:
 		Globals.player.do_damage(999999999, true)
+		Globals.is_story_death = true
 
 func _level_complete() -> void:
 	var stream = $AudioStreamPlayer.stream as AudioStreamWAV
