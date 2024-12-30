@@ -7,7 +7,7 @@ enum Direction { UP, LEFT, RIGHT, IDLE }
 @export var boots_modifier: int = 3
 @export var health: float = 500
 @export var shield: float = 300
-@export var blink_speed_modifier: float = 3
+@export var blink_speed_modifier: float = 7
 
 @export var has_shield: bool = true
 @export var has_boots = true
