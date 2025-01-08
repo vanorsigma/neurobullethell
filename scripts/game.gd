@@ -23,6 +23,7 @@ func prepare_level(level: PackedScene) -> void:
 	instantiated_level = levels[levels_index].instantiate()
 	add_child(instantiated_level)
 	Globals.level_begin.emit()
+	Globals.current_level = levels_index
 
 func _ready() -> void:
 	Globals.restart_request.connect(self._on_level_restart)

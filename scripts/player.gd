@@ -26,14 +26,12 @@ func _ready() -> void:
 	Globals.bullet_hit.connect(_on_bullet_hit_dispatcher)
 	Globals.self_destruct.connect(do_damage.bind(999999999, true))
 
-	if not has_shield:
-		shield = 0
-
 func _on_bullet_hit_dispatcher(body: Node, damage: int, armor_bullet: bool) -> void:
 	if body == self or body == $Shield and not invincible:
 		do_damage(damage)
 		if armor_bullet and has_armor:
 			Globals.is_story_death = true
+			invincible = false
 			do_damage(999999999, true)
 			invincible = true
 
@@ -149,6 +147,9 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_pressed("blink") and $BlinkCooldownTimer.is_stopped() and not has_boots:
 		invincible = true
+		print(velocity)
+		if velocity == Vector2(0, 0):
+			velocity = Vector2(0, -base_speed)
 		velocity.x *= blink_speed_modifier
 		velocity.y *= blink_speed_modifier
 		$BlinkTimer.start()

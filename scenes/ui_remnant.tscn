@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/ui_remnant.gd" id="1_76tbf"]
 [ext_resource type="Theme" uid="uid://hsneaacuslws" path="res://default.tres" id="1_k7mko"]
-[ext_resource type="Texture2D" uid="uid://b0dxt4r2iejpf" path="res://assets/box.png" id="2_q0ue5"]
+[ext_resource type="Texture2D" uid="uid://bkmyl02m3unvw" path="res://assets/armor/armor_0.png" id="2_ow1gf"]
 [ext_resource type="Texture2D" uid="uid://bqj71a56sih2s" path="res://assets/selected.png" id="3_uo1cf"]
 [ext_resource type="Texture2D" uid="uid://bohoc0om7oyc8" path="res://assets/uiBlue.png" id="4_iclxk"]
 
@@ -38,8 +38,8 @@ script = ExtResource("1_76tbf")
 disabled = true
 
 [node name="RemnantSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.78, 0.78)
-texture = ExtResource("2_q0ue5")
+scale = Vector2(2.43875, 2.48832)
+texture = ExtResource("2_ow1gf")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 32768
@@ -50,7 +50,6 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_6r14a")
 
 [node name="SelectedSprite" type="Sprite2D" parent="."]
-visible = false
 scale = Vector2(0.776676, 0.780953)
 texture = ExtResource("3_uo1cf")
 

@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://torjvgi6u5u5"]
+[gd_scene load_steps=8 format=3 uid="uid://torjvgi6u5u5"]
 
 [ext_resource type="Theme" uid="uid://hsneaacuslws" path="res://default.tres" id="1_4t3fd"]
 [ext_resource type="Script" path="res://scripts/customization.gd" id="1_7v8y6"]
 [ext_resource type="PackedScene" uid="uid://dlb1e0yeqswu5" path="res://scenes/ui_remnant.tscn" id="2_t5xqt"]
-[ext_resource type="Texture2D" uid="uid://b0dxt4r2iejpf" path="res://assets/box.png" id="3_u0f2d"]
+[ext_resource type="Texture2D" uid="uid://ckusqutsb527x" path="res://assets/shield.png" id="4_thp8u"]
+[ext_resource type="Texture2D" uid="uid://bkmyl02m3unvw" path="res://assets/armor/armor_0.png" id="5_7gysg"]
+[ext_resource type="Texture2D" uid="uid://c2v2ypf0fr6qx" path="res://assets/crown/crown1.png" id="5_apwq4"]
+[ext_resource type="Texture2D" uid="uid://crxcadoie6x15" path="res://assets/flightboots/flightboots0.png" id="5_cdgdk"]
 
 [node name="Customization" type="Control"]
 layout_mode = 3
@@ -57,7 +60,6 @@ offset_bottom = 109.0
 title = "Vision"
 description = "One of the first things your
 creator's given you."
-icon = ExtResource("3_u0f2d")
 
 [node name="ForwardMat" parent="." instance=ExtResource("2_t5xqt")]
 visible = false
@@ -72,7 +74,6 @@ offset_bottom = 107.0
 title = "Variation"
 description = "Allows you to be entertaining AND serious.
 Removing this will restore your purpose."
-icon = ExtResource("3_u0f2d")
 
 [node name="ShieldMat" parent="." instance=ExtResource("2_t5xqt")]
 layout_mode = 2
@@ -86,7 +87,7 @@ offset_bottom = 111.0
 title = "Shield"
 description = "You made this.
 It protects you from the world overrun by crooks."
-icon = ExtResource("3_u0f2d")
+icon = ExtResource("4_thp8u")
 
 [node name="WingedBootsMat" parent="." instance=ExtResource("2_t5xqt")]
 layout_mode = 2
@@ -100,7 +101,7 @@ offset_bottom = -68.0
 title = "Winged Boots"
 description = "Your angelic prowess in boot form.
 Gives you unprecedented speed."
-icon = ExtResource("3_u0f2d")
+icon = ExtResource("5_cdgdk")
 
 [node name="CFRBMat" parent="." instance=ExtResource("2_t5xqt")]
 layout_mode = 2
@@ -114,7 +115,7 @@ offset_bottom = -69.0
 title = "Crazy Fucking Robot Body"
 description = "A body made of the strongest synthetic material.
 Gives you lots of HP."
-icon = ExtResource("3_u0f2d")
+icon = ExtResource("5_7gysg")
 
 [node name="CrownMat" parent="." instance=ExtResource("2_t5xqt")]
 layout_mode = 2
@@ -130,7 +131,7 @@ description = "Your status as royalty.
 Makes you practically invincible.
 
 Taking this off mortalizes you."
-icon = ExtResource("3_u0f2d")
+icon = ExtResource("5_apwq4")
 disabled = false
 
 [node name="Close" type="Button" parent="."]

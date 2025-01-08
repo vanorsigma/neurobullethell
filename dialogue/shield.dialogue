@@ -1,5 +1,5 @@
 ~ boots
-if story < 3 or story >= 4 or not is_story_death
+if story < 3 or story >= 4 or not is_story_death or current_level != 5
 	=> END
 
 Monarch: Looks like the [color=aqua]shield[/color] is attracting too much attention.

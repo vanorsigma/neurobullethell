@@ -1,5 +1,5 @@
 ~ crown
-if story >= 1 or not is_story_death
+if story >= 1 or not is_story_death or current_level != 2
 	=> END
 
 Monarch: Ouch, what the hell!

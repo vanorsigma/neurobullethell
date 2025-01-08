@@ -18,6 +18,8 @@ func _set_player_to_customization() -> void:
 	$Player.has_armor = Globals.selected_items & 0b010000
 	$Player.has_crown = Globals.selected_items & 0b100000
 
+	$Player.shield = 0 if not $Player.has_shield else $Player.shield
+
 func _ready() -> void:
 	if not endingNotifier:
 		printerr("EndingNotifier not set in BaseLevel, but we'll continue anyway")
@@ -30,7 +32,7 @@ func _ready() -> void:
 	hud.max_hp = $Player.health
 	dash.visible = not $Player.has_boots
 	dash.max_value = blinkCooldownTimer.wait_time
-	hud.max_shield = $Player.shield
+	hud.max_shield = max($Player.shield, 1)
 
 	for node in onCameraMakeVisibleAndFollow:
 		assert(node.has_node("VisibleOnScreenNotifier2D"), "Node must have a VisibleOnScreenNotifier2D child")
